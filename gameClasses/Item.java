@@ -3,6 +3,7 @@ package gameClasses;
 public class Item {
 
     //atributos:nome, tipo(arma, armadura,elmo, não equipavél=usavel), bonus de poder, valor
+    //alteração só pr aentrar no historico
     String nome;
     String tipo;
     int valor;
