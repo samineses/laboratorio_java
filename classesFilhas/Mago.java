@@ -2,13 +2,13 @@ package classesFilhas;
 import gameClasses.Classe;
 import gameClasses.Item;
 
-public class Mago extends Classe {
+public class Mago{
 
     private String itemCabeca;
     
 
-    public Mago(String DESCRICAO, Item itemMaoDireita, Item itemMaoEsquerda, Item itemPe) {
-        super(DESCRICAO, itemMaoDireita, itemMaoEsquerda, itemPe);
+    public Mago(String DESCRICAO) {
+        ;
     }
     
 
@@ -26,9 +26,6 @@ public class Mago extends Classe {
         String local;
 
         local =   "                   " + "--" +  getDESCRICAO() + "--"  + "\n"
-                + "             [Mão direita  = " + getItemMaoDireita()  + "      ]\n"
-                + "             [Mão esquerda = " + getItemMaoEsquerda() + "      ]\n"
-                + "             [Pé           = " + getItemPe()          + "      ]\n"
                 + "             [Cabeça       = {"+ itemCabeca +"}                ]";
 
         return local;

@@ -1,61 +1,27 @@
 package gameClasses;
 
-public class Classe {
+//Criando um enum = limita o acesso
+public enum Classe {
 
-    public final String DESCRICAO;
-    private Item itemMaoDireita;
-    private Item itemMaoEsquerda; 
-    private Item itemPe;
+    MAGO(""),
+    LADRAO(""),
+    GUERREIRO("");
     
-    public Classe (String DESCRICAO,Item itemMaoDireita, Item itemMaoEsquerda,Item itemPe){
+    public final String DESCRICAO;
+    
+    
+    private Classe (String DESCRICAO){
         this.DESCRICAO = DESCRICAO;
-        this.itemMaoDireita = itemMaoDireita;
-        this.itemMaoEsquerda = itemMaoEsquerda;
-        this.itemPe = itemPe;
-
     }
     
-    //getters and setters
+    //GET
     public String getDESCRICAO() {
         return DESCRICAO;
     }
     
-    public void setItemMaoDireita(Item itemMaoDireita) {
-        this.itemMaoDireita = itemMaoDireita;
-    }
-    public Item getItemMaoDireita() {
-        return itemMaoDireita;
-    }
-
-    public void setItemMaoEsquerda(Item itemMaoEsquerda) {
-        this.itemMaoEsquerda = itemMaoEsquerda;
-    }
-    public Item getItemMaoEsquerda() {
-        return itemMaoEsquerda;
-    }
-
-    public void setItemPe(Item itemPe) {
-        this.itemPe = itemPe;
-    }
-    public Item getItemPe() {
-        return itemPe;
-    }
-    
     //impressao
     public String toString() {
-        return    "                   " + "--" +  DESCRICAO + "--" + "\n"  
-                + "             [mão direita  = " + itemMaoDireita  + "      ]\n"
-                + "             [mão esquerda = " + itemMaoEsquerda + "      ]\n"
-                + "             [pé           = " + itemPe          + "      ]"
-                ;
+        return    "                   " + "--" +  DESCRICAO + "--" + "\n" ;
     }
-    
-    //metodo possui mao vazia 
-    public boolean possuiMaoVazia(){
-        if (itemMaoDireita == null || itemMaoEsquerda == null){
-            System.out.println("-possui uma das mãos livres-");
-        }
-        return true;
-    }
-    
+        
 }
