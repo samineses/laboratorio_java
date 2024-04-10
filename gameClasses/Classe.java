@@ -5,7 +5,7 @@ public enum Classe {
 
     MAGO(""),
     LADRAO(""),
-    GUERREIRO("");
+    GUERREIRO("adssd");
     
     public final String DESCRICAO;
     
@@ -13,7 +13,8 @@ public enum Classe {
     private Classe (String DESCRICAO){
         this.DESCRICAO = DESCRICAO;
     }
-    
+     
+     
     //GET
     public String getDESCRICAO() {
         return DESCRICAO;
@@ -23,5 +24,5 @@ public enum Classe {
     public String toString() {
         return    "                   " + "--" +  DESCRICAO + "--" + "\n" ;
     }
-        
+      
 }

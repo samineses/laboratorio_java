@@ -1,36 +1,20 @@
 package classesFilhas;
+    
+public class Ladrao{
+    
+    private final String DESCRICAO;
+    
 
-import gameClasses.Classe;
-import gameClasses.Item;
-
-    
-public class Ladrao extends Classe{
-    
-    private String itemCorpo;
-    
-    public Ladrao(String DESCRICAO, Item itemMaoDireita, Item itemMaoEsquerda, Item itemPe){
-        super(DESCRICAO, itemMaoDireita, itemMaoEsquerda, itemPe);
+    public Ladrao(String DESCRICAO){
+        this.DESCRICAO = DESCRICAO;
     }
-    
-    
-    //metodos get e set
-    public String getItemCorpo() {
-        return itemCorpo;
-    }
-    public void setItemCorpo(String itemCorpo) {
-        this.itemCorpo = itemCorpo;
-    }
-    
-    
+        
+   
     // impressao
     public String toString() {
         String local;
 
-        local =   "                   " + "--" +  getDESCRICAO() + "--"  + "\n"
-                + "             [Mão direita  = " + getItemMaoDireita()  + "      ]\n"
-                + "             [Mão esquerda = " + getItemMaoEsquerda() + "      ]\n"
-                + "             [Pé           = " + getItemPe()          + "      ]\n"
-                + "             [Cabeça       = {" + itemCorpo+"}                 ]";
+        local =   "                   " + "--" +  DESCRICAO + "--"  + "\n";
 
         return local;
     }
