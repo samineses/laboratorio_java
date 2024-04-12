@@ -1,11 +1,11 @@
 /*************************************************************
 *       Saulo Samineses Ra=188132 
-*       Data = 11/04/2024
+*       Data = 12/04/2024
+* -alteração para pull-
 *
 *
-*
-*como na hora de imprimir ele sabe que é esse metodo toString da classe Inventario deve ser usada
-dentro do método toString de Player?
+* como na hora de imprimir ele sabe que é esse metodo toString da classe Inventario deve ser usada
+*  dentro do método toString de Player?
 *
 *************************************************************/
 package gameMain;
