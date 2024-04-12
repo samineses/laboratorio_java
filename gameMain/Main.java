@@ -1,11 +1,11 @@
 /*************************************************************
 *       Saulo Samineses Ra=188132 
 *       Data = 12/04/2024
-*   -alteração de volta-
+* 
 *
 *
 * como na hora de imprimir ele sabe que é esse metodo toString da classe Inventario deve ser usada
-*  dentro do método toString de Player?
+* dentro do método toString de Player?
 *
 *************************************************************/
 package gameMain;
@@ -33,32 +33,7 @@ public class Main {
         Masmorra masmorra01 = new Masmorra(listMonstro ,bau );
         masmorra01.toString();
         */
-        
-        
-        
-        
-        /*//inicializando itens
-        Item item01 = new Item("item01",10);
-        Item item02 = new Item("item02",20);
-        Item item03 = new Item("item03",30);
-        */
-
-        
-        /*//adicionando itens no inventario
-        inventario01.adicionarItem(item01);
-        inventario01.adicionarItem(item02);
-        inventario01.adicionarItem(item03);
-        
-        
-        //removendo item do inventario
-        inventario01.removerItem(item01);
-        
-        //Acessando Item e testando acesso logo abaixo(comentado)
-        inventario01.acessarItem(item02);
-        //System.out.println("esse é o item procrado"+ inventario01.acessarItem(item02).toString());
-        */
-        
-        /////////////////////////////////////////////////////////
+                
         //INICIALIZANDO ( Players )
         Player player01 = new Player("pedrinho");
         Player player02 = new Player("zequinha");
@@ -88,32 +63,35 @@ public class Main {
         player03.setClasse(classe03);
         
         
-        //INICIALIZANDO ( Inventario )
-        List<Item> itens01 = new ArrayList<Item>();
+        //INICIALIZANDO ( Inventario e Itens )
+        List<Item> listaItens = new ArrayList<Item>();
         
-        Inventario inventario01 = new Inventario(itens01,10);
-        Inventario inventario02 = new Inventario(itens01,10);
-        Inventario inventario03 = new Inventario(itens01,10);
-
-        inventario01.setlimiteDeItens(10);
-        inventario02.setlimiteDeItens(5);
-        inventario03.setlimiteDeItens(3);
-        inventario01.setItens(itens01);
-        inventario02.setItens(itens01);
-        inventario03.setItens(itens01);
+        Item item01 = new Item("item01",10);
+        Item item02 = new Item("item02",15);
+        Item item03 = new Item("item03",9);
         
+        Inventario inventario01 = new Inventario(listaItens,10);
         player01.setInventario(inventario01);
-        player02.setInventario(inventario02);
-        player03.setInventario(inventario03);
+        inventario01.adicionarItem(item01);
+        inventario01.adicionarItem(item02);
+        inventario01.adicionarItem(item03);
         
+        /*
+        //removendo item do inventario
+        inventario01.removerItem(item01);
+        
+        //Acessando Item e testando acesso logo abaixo(comentado)
+        inventario01.acessarItem(item02);
+        //System.out.println("esse é o item procrado"+ inventario01.acessarItem(item02).toString());
+        */
         
         //SAÍDAS
         System.out.println("----------------------------------------------------\n");
         System.out.println(player01.toString());
         System.out.println("----------------------------------------------------\n");
-        System.out.println(player02.toString());
+        //System.out.println(player02.toString());
         System.out.println("----------------------------------------------------\n");
-        System.out.println(player03.toString());
+        //System.out.println(player03.toString());
         System.out.println("----------------------------------------------------\n");
         
     }

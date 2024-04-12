@@ -8,8 +8,9 @@ public class Inventario {
     private int limiteDeItens;
     
     
-    //CONSTRUCTOR ( Iventário )
+    //CONSTRUCTOR ( Inventário )
     public Inventario(List<Item> itens , int limiteDeItens){
+        
         this.itens = itens;
         this.limiteDeItens = limiteDeItens;
     }
@@ -68,7 +69,7 @@ public class Inventario {
         String local;
     
         local = "\n-Limite de Itens: " + limiteDeItens + "\n" +
-                "\n" + itens;
+                "\n " + itens;
         
         return  local;
     }

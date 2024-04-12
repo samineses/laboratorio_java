@@ -1,27 +1,28 @@
 package gameClasses;
 
 //import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 
 public class Item {
 
     //atributos:
-
     private final String NAME;
     private int bonusPower;
     
-    private int valor;                  // valor tipo preço?
-    private String tipo;                // ??
-    private boolean itemGrande;         // ??
-    private List<Classe> classesCompativeis;
+    //private int valor;                  // valor tipo preço?
+    //private String tipo;                // ??
+    //private boolean itemGrande;         // ??
+    //private List<Classe> classesCompativeis;
 
-    //constructor Item
+    //CONSTRUCTOR
     public Item(String NAME, int bonusPower){
         this.NAME = NAME;
         this.bonusPower = bonusPower;
     }
     
+    
+    /*
     //getters and setters
     public String getNAME() {
         return NAME;
@@ -62,17 +63,15 @@ public class Item {
     public void setItemGrande(boolean itemGrande) {
         this.itemGrande = itemGrande;
     }
-
+    */
     
     //metodo de impressao
     public String toString() {
         
         String local;
 
-        local =  NAME + " : " + "Bonus Power = " + bonusPower
-                /*+ "Tipo do item = " + tipo + "\n" +
-                "Valor de venda do item = " + valor + "\n" +*/
-                ;
+        local = NAME + ": " + "Bonus Power = " + bonusPower + "\n";
+        
         return local;
     }
 
