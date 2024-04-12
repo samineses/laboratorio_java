@@ -8,29 +8,29 @@ public class Item {
 
     //atributos:
 
-    private final String NOME;
+    private final String NAME;
     private int bonusPower;
+    
     private int valor;                  // valor tipo preço?
     private String tipo;                // ??
     private boolean itemGrande;         // ??
     private List<Classe> classesCompativeis;
 
     //constructor Item
-    public Item(String NOME, int bonusPower){
-        this.NOME = NOME;
+    public Item(String NAME, int bonusPower){
+        this.NAME = NAME;
         this.bonusPower = bonusPower;
     }
     
     //getters and setters
-    public String getNOME() {
-        return NOME;
-    }
-    
-    public void setBonusPower(int bonusPower) {
-        this.bonusPower = bonusPower;
+    public String getNAME() {
+        return NAME;
     }
     public int getBonusPower() {
         return bonusPower;
+    }
+    public void setBonusPower(int bonusPower) {
+        this.bonusPower = bonusPower;
     }
     
     public int getValor() {
@@ -69,7 +69,7 @@ public class Item {
         
         String local;
 
-        local =  NOME + " : " + "Bonus Power = " + bonusPower
+        local =  NAME + " : " + "Bonus Power = " + bonusPower
                 /*+ "Tipo do item = " + tipo + "\n" +
                 "Valor de venda do item = " + valor + "\n" +*/
                 ;

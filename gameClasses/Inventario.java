@@ -4,42 +4,33 @@ import java.util.List;
 
 public class Inventario {
 
-    private int limiteInventario;
-    //private List<Item> inventario;
-    private List<Item> inventario;
-
-
-
-    //constructor Iventário
-    public Inventario(List<Item> inventario , int limiteInventario){
-        this.inventario = inventario;
-        this.limiteInventario = limiteInventario;
+    private List<Item> itens;
+    private int limiteDeItens;
+    
+    
+    //CONSTRUCTOR ( Iventário )
+    public Inventario(List<Item> itens , int limiteDeItens){
+        this.itens = itens;
+        this.limiteDeItens = limiteDeItens;
     }
-
-      
-    //getts and setts
-    public int getLimiteInventario() {
-        return limiteInventario;
+    
+    //GETTERS and SETTERS
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
     }
-    public void setLimiteInventario(int limiteInventario) {
-        this.limiteInventario = limiteInventario;
-    }
-    public List<Item> getInventario() {
-        return inventario;
-    }
-    public void setInventario(List<Item> inventario) {
-        this.inventario = inventario;
+    public void setlimiteDeItens(int limiteDeItens) {
+        this.limiteDeItens = limiteDeItens;
     }
     
     
-    //Adicionar Item
-    public boolean adicionarItem(Item itemx){
-        inventario.add(itemx);
+    //ADICIONAR ITEM
+    public boolean adicionarItem(Item item){
+        itens.add(item);
         return true;
     }
    
     //Remover Item
-    public void removerItem(Item itemx){
+    /*public void removerItem(Item itemx){
         for (int i=0; i<inventario.size();i++){
             Item p = inventario.get(i);
             if(p.equals(itemx)){
@@ -47,11 +38,11 @@ public class Inventario {
                 break;
             }
         }
-    }
+    }*/
 
 
     //Acessar Item
-    public Item acessarItem(Item itemx){
+    /*public Item acessarItem(Item itemx){
         for (int i=0; i<inventario.size(); i++){
             Item p = inventario.get(i);
             if (p.equals(itemx)){
@@ -59,24 +50,25 @@ public class Inventario {
             }
         }
         return itemx;
-    }
+    }*/
 
 
 
     //Listar Inventario
-    public void listarInventario(){
+    /*public void listarInventario(){
         for (int i=0; i<inventario.size(); i++){
             System.out.println(inventario.get(i));
         }
-    }
+    }*/
     
     
-    //impressao
+    //impressao 
     public String toString() {
         
         String local;
     
-        local = "\n[limite = " + limiteInventario + "]\n" + inventario;
+        local = "\n-Limite de Itens: " + limiteDeItens + "\n" +
+                "\n" + itens;
         
         return  local;
     }

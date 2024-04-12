@@ -13,5 +13,14 @@ public class Masmorra{
         this.monstros = monstros;
         this.tesouros = tesouros;
     }
+
+    
+    //criei só pra utilizar essa classe por enquanto
+    public String toString(String name){
+        
+
+        return  "monstros = [" + monstros + "]" +
+                "tesouros = [" + tesouros + "]" ;        
+    }
     
 }
