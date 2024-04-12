@@ -1,7 +1,7 @@
 /*************************************************************
 *       Saulo Samineses Ra=188132 
 *       Data = 12/04/2024
-* -alteração para pull-
+*   -alteração de volta-
 *
 *
 * como na hora de imprimir ele sabe que é esse metodo toString da classe Inventario deve ser usada
