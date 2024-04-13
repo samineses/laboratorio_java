@@ -1,6 +1,6 @@
 package gameClasses;
 
-import java.util.List;
+//import java.util.List;
 
 public class Player {
 
@@ -9,6 +9,7 @@ public class Player {
     private int level;
     private Race race;
     private Classe classe;
+    @SuppressWarnings("unused")
     private Inventario inventory;
     //Atributos Itens
     private Item itemHead;    
@@ -37,7 +38,7 @@ public class Player {
     }
     
 
-    //GET and SET ( Membros )    
+    /*//GET and SET ( Membros )    
     public Item getItemRhand() {
         return itemRhand;
     }
@@ -69,14 +70,14 @@ public class Player {
     }
     public void setItemBody(Item itemBody) {
         this.itemBody = itemBody;
-    }
+    }*/
     
-    //venderItens(itensParaVender List<Item>): boolean
+   /* //venderItens(itensParaVender List<Item>): boolean
     public boolean sellItems(List<Item> toSellItems ){
         
         
         return true ;
-    }
+    }*/
     
 
     
@@ -86,11 +87,9 @@ public class Player {
     public int playerPower(){
         int power;
         
-        /*power = classe.getItemMaoDireita().getBonusPower()  +
-                classe.getItemMaoEsquerda().getBonusPower() +
-                classe.getItemPe().getBonusPower()          +
-                level;*/
-        power = level; //falta somar o restante dos bonus
+        power = level + itemHead.getBonusPower() + itemBody.getBonusPower() +
+                itemRhand.getBonusPower() + itemLhand.getBonusPower() + 
+                itemFoot.getBonusPower();
 
         return power;
     }
@@ -102,10 +101,10 @@ public class Player {
     
         local = "\nPlayer      = "        +     NAME       + "\n" +
                 "\nLevel       = "        +     level      + "\n" +
-                //"\nPower       = " + playerPower()  + "\n" +
+                "\nPower       = " + playerPower()  + "\n" +
                 "\nRace        = "        +     race       + "\n" +
-                "\nClass       = "        +     classe     + "\n" +
-                "\n#Inventário Abaixo:\n" + inventory      + "\n" ; 
+                "\nClass       = "        +     classe     + "\n" ;
+                //"\n#Inventário Abaixo:\n" + inventory      + "\n" ; 
                
         return  local;   
     }

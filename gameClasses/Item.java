@@ -1,77 +1,56 @@
 package gameClasses;
 
 //import java.util.ArrayList;
-//import java.util.List;
+import java.util.List;
 
 
 public class Item {
 
     //atributos:
     private final String NAME;
+    
+    
+    private TipoItem tipo;
     private int bonusPower;
     
-    //private int valor;                  // valor tipo preço?
-    //private String tipo;                // ??
-    //private boolean itemGrande;         // ??
-    //private List<Classe> classesCompativeis;
-
+    private int valor;                  // valor tipo preço?
+    private boolean itemGrande;
+    private List<Classe> classesCompativeis;
+    private List<Race> racasCompativeis;
+    
     //CONSTRUCTOR
-    public Item(String NAME, int bonusPower){
+    public Item(String NAME, TipoItem tipo, int bonusPower, int valor, boolean itemGrande, List<Classe> classesCompativeis, List<Race> racasCompativeis){
         this.NAME = NAME;
+        this.tipo = tipo;
         this.bonusPower = bonusPower;
+        this.valor = valor;
+        this.itemGrande = itemGrande;
+        this.classesCompativeis = classesCompativeis;
+        this.racasCompativeis = racasCompativeis;
     }
     
-    
-    /*
-    //getters and setters
+    //GETTERS and SETTERS
     public String getNAME() {
         return NAME;
     }
     public int getBonusPower() {
         return bonusPower;
     }
-    public void setBonusPower(int bonusPower) {
-        this.bonusPower = bonusPower;
-    }
-    
-    public int getValor() {
-        return valor;
-    }
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
-    
-    public String getTipo() {
-        return tipo;
-    }
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-    
-    public List<Classe> getClassesCompativeis() {
-        return classesCompativeis;
-    }
-
-    public void setClassesCompativeis(List<Classe> classesCompativeis) {
-        this.classesCompativeis = classesCompativeis;
-    }
-
-    public boolean getItemGrande() {
-        return itemGrande;
-    }
-
-    public void setItemGrande(boolean itemGrande) {
-        this.itemGrande = itemGrande;
-    }
-    */
     
     //metodo de impressao
     public String toString() {
         
         String local;
 
-        local = NAME + ": " + "Bonus Power = " + bonusPower + "\n";
-        
+        local = " "  + 
+                NAME       + "    :   "      +
+                tipo       + "  :   "        +
+                bonusPower + "    :   "      +
+                valor      + "  :    "       +
+                itemGrande + "      : "       +
+                classesCompativeis + ":  " +
+                racasCompativeis + "\n";
+                       
         return local;
     }
 

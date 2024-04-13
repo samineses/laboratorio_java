@@ -3,16 +3,14 @@ package gameClasses;
 //Criando um enum = limita o acesso
 public enum Classe {
 
-    MAGO("Mago","hi"),
-    LADRAO("Ladrão", "hi"),
-    GUERREIRO("Guerreiro","hi" );
+    MAGO("Mago"),
+    LADRAO("Ladrão"),
+    GUERREIRO("Guerreiro");
     
     public final String DESCRICAO;
-    public final String helloworld;
     
-    private Classe (String DESCRICAO, String hello){
+    private Classe (String DESCRICAO){
         this.DESCRICAO = DESCRICAO;
-        this.helloworld = hello;
     }
     
       

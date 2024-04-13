@@ -3,64 +3,70 @@ import java.util.List;
 //import java.util.ArrayList;
 
 public class Inventario {
-
+    
     private List<Item> itens;
     private int limiteDeItens;
     
     
     //CONSTRUCTOR ( Inventário )
-    public Inventario(List<Item> itens , int limiteDeItens){
-        
+    public Inventario(List<Item> itens , int limiteDeItens){    
         this.itens = itens;
         this.limiteDeItens = limiteDeItens;
     }
-    
-    //GETTERS and SETTERS
-    public void setItens(List<Item> itens) {
-        this.itens = itens;
-    }
-    public void setlimiteDeItens(int limiteDeItens) {
-        this.limiteDeItens = limiteDeItens;
-    }
-    
     
     //ADICIONAR ITEM
     public boolean adicionarItem(Item item){
         itens.add(item);
         return true;
     }
-   
-    //Remover Item
-    /*public void removerItem(Item itemx){
-        for (int i=0; i<inventario.size();i++){
-            Item p = inventario.get(i);
-            if(p.equals(itemx)){
-                inventario.remove(p);
+    
+    //ACESSAR ITEM
+    Item testando;  //dá pra declarar esse item dentro do método??
+    public Item acessarItem(String name){
+        for (int i=0; i<itens.size(); i++){
+            String p = itens.get(i).getNAME();
+            if (p.equals(name)){
+                testando = itens.get(i);
+                break;
+            }   
+        }
+        return testando;
+    }
+
+    //REMOVER ITEM
+    public void removerItem(String name){
+        for (int i=0; i<itens.size(); i++){
+            String p = itens.get(i).getNAME();
+            if (p.equals(name)){
+                itens.remove(i);
                 break;
             }
-        }
-    }*/
-
-
-    //Acessar Item
-    /*public Item acessarItem(Item itemx){
-        for (int i=0; i<inventario.size(); i++){
-            Item p = inventario.get(i);
-            if (p.equals(itemx)){
+        }        
+    }
+    //REMOVER VARIOS ITEMS
+    public void removerItems(List<String> nomes){
+        for (int m=0; m<nomes.size(); m++){
+            for (int n=0; n<itens.size();n++){
+                String p = itens.get(n).getNAME();
+                if(p.equals(nomes.get(m))){
+                    itens.remove(n);
                 break;
+                }
+            
             }
         }
-        return itemx;
-    }*/
+    }
 
-
-
-    //Listar Inventario
-    /*public void listarInventario(){
-        for (int i=0; i<inventario.size(); i++){
-            System.out.println(inventario.get(i));
+    //LISTAR ITENS INVENTARIO  (qual a utilidade se o toString já faz isso??)
+    public void listarItens(){
+        String local =  "#Inventário Abaixo:\n" +
+                        "\n-Limite de Itens: " + limiteDeItens + "\n\n" + 
+                        "Nome do Item :  Tipo   :  Poder  : Valor : Item Grande  :     Classes Compativeis  :    Raças Compatíveis\n";
+        System.out.println(local);
+        for (int i=0; i<itens.size(); i++){
+            System.out.println("  " + itens.get(i));
         }
-    }*/
+    }
     
     
     //impressao 
@@ -69,7 +75,8 @@ public class Inventario {
         String local;
     
         local = "\n-Limite de Itens: " + limiteDeItens + "\n" +
-                "\n " + itens;
+                "\n" + "Nome do Item :  Tipo   :  Poder  : Valor : Item Grande  :     Classes Compativeis  :    Raças Compatíveis" +
+                "\n\n " + itens;
         
         return  local;
     }
