@@ -143,32 +143,35 @@ public class Main {
         
         /////////////////////////////////////////////////////////////////// 
 
-        //inventario01.listarItens();
-
-        //INICIALIZANDO ( Masmorra )
-         player01.setLevel(70);
-         System.out.println(player01.toString());
-
-         Monstro monstro01 = new Monstro("helloWorld",80,9);
-         System.out.println("----------------------------------------------------\n");
-         System.out.println(monstro01.toString());
-         monstro01.setTesouros(listaItens02);
-         CampoDeBatalha.batalharContraMonstro(monstro01, player01);
-         System.out.println("----------------------------------------------------\n");
-         inventario01.listarItens();
-   
-         
-         //BauDeTesouros bau = new BauDeTesouros(0, null);
-    
-         /*List<Monstro> listMonstro = new ArrayList<Monstro>();
-         listMonstro.add(monstro01);
-         listMonstro.add(monstro02);
-         listMonstro.add(monstro03);
-    
-         Masmorra masmorra01 = new Masmorra(listMonstro ,bau );
-         masmorra01.toString();
-         */
         
+        //INICIALIZANDO ( Masmorra pt1 )
+        //inventario01.listarItens();
+        //player01.setLevel(70);
+        //System.out.println(player01.toString());
+
+        Monstro monstro01 = new Monstro("helloWorld",80,9);
+        Monstro monstro02 = new Monstro("helloWorld",80,9);
+        Monstro monstro03 = new Monstro("helloWorld",80,9);
+        
+        System.out.println("----------------------------------------------------\n");
+        //System.out.println(monstro01.toString());
+        monstro01.setTesouros(listaItens02);
+        monstro02.setTesouros(listaItens02);
+        monstro03.setTesouros(listaItens02);
+        //CampoDeBatalha.batalharContraMonstro(monstro01, player01);
+        System.out.println("----------------------------------------------------\n");
+        //inventario01.listarItens();
+        List <Monstro> monstros = new ArrayList<>();
+        monstros.add(monstro01);
+        monstros.add(monstro02);
+        monstros.add(monstro03);
+
+        BauDeTesouros bau = new BauDeTesouros(listaItens01, 3);
+
+        
+        Masmorra masmorra01 = new Masmorra(monstros, bau);
+        
+        masmorra01.abrirPortaItem(player01);
         
         
     }

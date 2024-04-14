@@ -3,14 +3,27 @@ import java.util.List;
 
 public class Inventario {
     
+    //ATRIBUTOS
     private List<Item> itens;
     private int limiteDeItens;
+    
     
     
     //CONSTRUCTOR ( Inventário )
     public Inventario(List<Item> itens , int limiteDeItens){    
         this.itens = itens;
         this.limiteDeItens = limiteDeItens;
+    }
+    
+    //GETs
+    public int getLimiteDeItens() {
+        return limiteDeItens;
+    }
+    public List<Item> getItens() {
+        return itens;
+    }
+    public void setItens(List<Item> itens) {
+        this.itens = itens;
     }
     
     //ADICIONAR ITEM

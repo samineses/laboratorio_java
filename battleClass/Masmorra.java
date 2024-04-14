@@ -1,7 +1,9 @@
 package battleClass;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import gameClasses.Item;
 import gameClasses.Player;
-//import gameClasses.Inventario;
 import static battleClass.CampoDeBatalha.*;
 
 public class Masmorra{
@@ -10,6 +12,13 @@ public class Masmorra{
     private List<Monstro> monstros;
     private BauDeTesouros tesouros;
     
+    
+    //GET
+    public BauDeTesouros getTesouros() {
+        return tesouros;
+    }
+
+
     //CONSTRUCTOR
     public Masmorra(List<Monstro> monstros, BauDeTesouros tesouros){
         this.monstros = monstros;
@@ -22,9 +31,28 @@ public class Masmorra{
         batalharContraMonstro(monstros.get(0),jogador);      
     }
 
-    //ABRIR PORTA ITEM
+    //ABRIR PORTA ITEM                  //consigo fazer isso bem mais simples sem usar o listarItens!!
     public void abrirPortaItem(Player jogador){
-        //BauDeTesouros.listarItens();
+        List<Item> LocalItens = new ArrayList<>();
+        BauDeTesouros LocalBau = new BauDeTesouros(LocalItens, 2);
+        Random two = new Random();
+        int c = tesouros.getItens().size() + 1;
+        int cont =0;
+        while(cont != 2){
+            int p = two.nextInt(tesouros.getItens().size());
+
+            if (c != p ){
+                LocalBau.adicionarItem(tesouros.getItens().get(p));            
+                c = p;
+                cont++;
+            }
+            else{
+                continue;
+            }
+        }
+        LocalBau.listarItens();
+        //agora o jogador deve escolher um desses 2 itens
+        //depois usar o método acessarItem para pegar esse item do bau adicionar no inventario do jogador
     }
     
     
