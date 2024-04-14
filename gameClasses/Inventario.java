@@ -1,6 +1,5 @@
 package gameClasses;
 import java.util.List;
-//import java.util.ArrayList;
 
 public class Inventario {
     
@@ -21,7 +20,7 @@ public class Inventario {
     }
     
     //ACESSAR ITEM
-    Item testando;  //dá pra declarar esse item dentro do método??
+    Item testando;
     public Item acessarItem(String name){
         for (int i=0; i<itens.size(); i++){
             String p = itens.get(i).getNAME();
@@ -59,10 +58,10 @@ public class Inventario {
 
     //LISTAR ITENS INVENTARIO  (qual a utilidade se o toString já faz isso??)
     public void listarItens(){
-        String local =  "#Inventário Abaixo:\n" +
+        /*String local =  "#Inventário Abaixo:\n" +
                         "\n-Limite de Itens: " + limiteDeItens + "\n\n" + 
                         "Nome do Item :  Tipo   :  Poder  : Valor : Item Grande  :     Classes Compativeis  :    Raças Compatíveis\n";
-        System.out.println(local);
+        System.out.println(local);*/
         for (int i=0; i<itens.size(); i++){
             System.out.println("  " + itens.get(i));
         }

@@ -21,37 +21,24 @@
 package gameMain;
 import java.util.ArrayList;
 import java.util.List;
-//import battleClass.*;
 import gameClasses.*;
+import battleClass.*;
+//import static battleClass.CampoDeBatalha.*;
 //import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
         
-       /*//INICIALIZANDO ( Masmorra )
-        Monstro monstro01 = new Monstro();
-        Monstro monstro02 = new Monstro();
-        Monstro monstro03 = new Monstro();
         
-        BauDeTesouros bau = new BauDeTesouros(0, null);
-
-        List<Monstro> listMonstro = new ArrayList<Monstro>();
-        listMonstro.add(monstro01);
-        listMonstro.add(monstro02);
-        listMonstro.add(monstro03);
-
-        Masmorra masmorra01 = new Masmorra(listMonstro ,bau );
-        masmorra01.toString();
-        */
-                
         //INSTANCIANDO ( Players )
         Player player01 = new Player("pedrinho");
         Player player02 = new Player("zequinha");
         Player player03 = new Player("joazinho");
+                
         
-        player01.setLevel(100);
-        player02.setLevel(90);
-        player03.setLevel(80);
+        //INSTANCIANDO ( Level )
+        
+        
         
         //INSTANCIANDO ( Races )
         Race race01 = Race.ANAO;
@@ -84,40 +71,43 @@ public class Main {
         listaRaces.add(race01);
         listaRaces.add(race02);
         listaRaces.add(race03);
-
-
-        List<Item> listaItens = new ArrayList<Item>();
-        Item item01 = new Item("item01", null ,10,10,true,listaClasses,listaRaces);
-        Item item02 = new Item("item02", null,15,15,true,listaClasses,listaRaces);
-        Item item03 = new Item("item03", null,20,20,true, listaClasses,listaRaces);
-
-        Inventario inventario01 = new Inventario(listaItens,10);
+        
+        
+        Item item01 = new Item("item01", TipoItem.CABECA ,0,250,true,listaClasses,listaRaces);
+        Item item02 = new Item("item02", TipoItem.CORPO,15,350,true,listaClasses,listaRaces);
+        Item item03 = new Item("item03", TipoItem.PE,20,650,true, listaClasses,listaRaces);
+        Item item04 = new Item("item04", TipoItem.MAO,20,650,true, listaClasses,listaRaces);
+        
+        List<Item> listaItens01 = new ArrayList<Item>();
+        List<Item> listaItens02 = new ArrayList<Item>();
+        
+        listaItens02.add(item04); //pro monstro
+        Inventario inventario01 = new Inventario(listaItens01,10);
         inventario01.adicionarItem(item01);
         inventario01.adicionarItem(item02);
         inventario01.adicionarItem(item03);
         
         player01.setInventario(inventario01);
-        /*
+        player01.setItemHead(item01);
+        player01.setItemBody(item01);
+        player01.setItemFoot(item01);
+        player01.setItemRhand(item01);
+        player01.setItemLhand(item01);
         
-        //Acessando Item e testando acesso logo abaixo(comentado)
-        inventario01.acessarItem(item02);
-        //System.out.println("esse é o item procrado"+ inventario01.acessarItem(item02).toString());
-        */
-        
-        
-        
-        
-        //IMPRESSÃO ( Players )
+         
+        /*//IMPRESSÃO ( Players )
         System.out.println("----------------------------------------------------\n");
         System.out.println(player01.toString());
         System.out.println("----------------------------------------------------\n");
         
+        
+        
         //IMPRESSÃO DO INVENTARIO
-        //inventario01.listarItens();
+        inventario01.listarItens();
         //System.out.println(inventario01.toString());
         System.out.println("----------------------------------------------------\n");
-
-
+        
+        
         //REMOÇÃO (item from inventario)
         String itemToRemove = "null";
         inventario01.removerItem(itemToRemove);
@@ -134,13 +124,53 @@ public class Main {
         System.out.println("items removidos   = " + itemToRemove);
         
         
-        
         //IMPRESSÃO ( Acesso à Itens ) 
-        String itemProcurado = "nome do item";
+        String itemProcurado = "null";
         System.out.println("Item procurado    = "+ inventario01.acessarItem(itemProcurado) );      
         System.out.println("----------------------------------------------------\n");
         //System.out.println(player01.toString());
+        
 
+        
+        //VENDENDO ITENS
+        List<Item> listaItensVender = new ArrayList<>();
+        listaItensVender.add(item01);
+        listaItensVender.add(item02);
+        //listaItensVender.add(item03);
+        
+        player01.venderItems(listaItensVender);
+        */
+        
+        /////////////////////////////////////////////////////////////////// 
+
+        //inventario01.listarItens();
+
+        //INICIALIZANDO ( Masmorra )
+         player01.setLevel(70);
+         System.out.println(player01.toString());
+
+         Monstro monstro01 = new Monstro("helloWorld",80,9);
+         System.out.println("----------------------------------------------------\n");
+         System.out.println(monstro01.toString());
+         monstro01.setTesouros(listaItens02);
+         CampoDeBatalha.batalharContraMonstro(monstro01, player01);
+         System.out.println("----------------------------------------------------\n");
+         inventario01.listarItens();
+   
+         
+         //BauDeTesouros bau = new BauDeTesouros(0, null);
+    
+         /*List<Monstro> listMonstro = new ArrayList<Monstro>();
+         listMonstro.add(monstro01);
+         listMonstro.add(monstro02);
+         listMonstro.add(monstro03);
+    
+         Masmorra masmorra01 = new Masmorra(listMonstro ,bau );
+         masmorra01.toString();
+         */
+        
+        
+        
     }
     
     

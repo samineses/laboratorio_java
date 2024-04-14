@@ -13,7 +13,7 @@ public class Item {
     private TipoItem tipo;
     private int bonusPower;
     
-    private int valor;                  // valor tipo preço?
+    private int valor;
     private boolean itemGrande;
     private List<Classe> classesCompativeis;
     private List<Race> racasCompativeis;
@@ -36,18 +36,20 @@ public class Item {
     public int getBonusPower() {
         return bonusPower;
     }
-    
+    public int getValor(){
+        return valor;
+    }
+
     //metodo de impressao
     public String toString() {
         
         String local;
 
-        local = " "  + 
-                NAME       + "    :   "      +
-                tipo       + "  :   "        +
-                bonusPower + "    :   "      +
-                valor      + "  :    "       +
-                itemGrande + "      : "       +
+        local = "  "  + NAME + "   : "    +
+                ""  + tipo   + "  :     " +
+                bonusPower   + "  :   "   +
+                valor        + "  :   "   +
+                itemGrande   + "       :      "   +
                 classesCompativeis + ":  " +
                 racasCompativeis + "\n";
                        
