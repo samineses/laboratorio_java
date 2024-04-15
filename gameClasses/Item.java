@@ -1,3 +1,15 @@
+/*
+ * 
+ * toString(util dentro de Listar inventario)
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
 package gameClasses;
 
 import java.util.List;
@@ -7,12 +19,10 @@ import java.util.List;
 public class Item {
 
     //atributos:
-    private final String NAME;
+    private final String NAME;      //get!    
+    private TipoItem tipo;          //get!
     
-    
-    private TipoItem tipo;
     private int bonusPower;
-    
     private int valor;
     private boolean itemGrande;
     private List<Classe> classesCompativeis;    //set
@@ -29,19 +39,19 @@ public class Item {
     }
     
     //GETTERS and SETTERS
+    public String getNAME() {
+        return NAME;
+    }
+    public TipoItem getTipo() {
+        return tipo;
+    }
     public void setClassesCompativeis(List<Classe> classesCompativeis) {
         this.classesCompativeis = classesCompativeis;
     }
 
     public void setRacasCompativeis(List<Race> racasCompativeis) {
         this.racasCompativeis = racasCompativeis;
-    }
-    
-    
-    
-    public String getNAME() {
-        return NAME;
-    }
+    }    
     public int getBonusPower() {
         return bonusPower;
     }
@@ -57,10 +67,10 @@ public class Item {
         local = NAME                      + " : " +
                 "Tipo = "  + tipo         + " : " +
                 "Poder = " + bonusPower   + " : " +
-                "Valor = " + valor        + "" ;
-                //itemGrande   + " : " +
-                //classesCompativeis + ":  " +
-                //racasCompativeis + "\n";
+                "Valor = " + valor        + "\n" ;
+                //"item grande = "+itemGrande   + " : " +
+                //"classesCompativeis = "+classesCompativeis + ":  " +
+                //"racas compativeis = "+racasCompativeis + "\n";
                        
         return local;
     }

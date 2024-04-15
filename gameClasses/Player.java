@@ -1,3 +1,17 @@
+/*
+ *  Lista de coisas uteis no player
+ *
+ * 
+ * Name:(get)
+ * level (set) (nao usei get até agora_eu acho)
+ * race, clase (nao usa nem get nem set já ficam definidas no constructor)
+ * inventario (get, set)!
+ * itens(get, set) (uso bastante nas interações com o usuario)
+ * toString(util para mostrar informações do jogador) 
+ * vender itens (to refatorando)
+ * playerPower(util-e ta ok)
+ */
+
 package gameClasses;
 
 //import java.util.ArrayList;
@@ -6,10 +20,10 @@ import java.util.List;
 public class Player {
 
     //ATRIBUTOS
-    private final String NAME;      //get!
-    private int level;              //set
-    private Race race;              //
-    private Classe classe;          //
+    private final String NAME;      
+    private int level;              
+    private Race race;              
+    private Classe classe;          
     private Inventario inventory;   //set, get
     
     private Item itemHead;      //set, get    
@@ -31,31 +45,8 @@ public class Player {
     public String getNAME(){
         return NAME;
     }
-    public void setLevel(int level) {
-        this.level = level;
-    }
-    //inventory
-    public void setInventario(Inventario inventory){
-        this.inventory = inventory;
-    }
     public Inventario getInventory(){
         return inventory;
-    }
-    //itens    
-    public void setItemHead(Item itemHead) {
-        this.itemHead = itemHead;
-    }
-    public void setItemBody(Item itemBody) {
-        this.itemBody = itemBody;
-    }
-    public void setItemFoot(Item itemFoot) {
-        this.itemFoot = itemFoot;
-    }
-    public void setItemRhand(Item itemRhand) {
-        this.itemRhand = itemRhand;
-    }
-    public void setItemLhand(Item itemLhand) {
-        this.itemLhand = itemLhand;
     }
     public Item getItemHead() {
         return itemHead;
@@ -72,13 +63,35 @@ public class Player {
     public Item getItemFoot() {
         return itemFoot;
     }
+    public void setLevel(int level) {
+        this.level = level;
+    }
+    public void setInventario(Inventario inventory){
+        this.inventory = inventory;
+    }
+    public void setItemHead(Item itemHead) {
+        this.itemHead = itemHead;
+    }
+    public void setItemBody(Item itemBody) {
+        this.itemBody = itemBody;
+    }
+    public void setItemFoot(Item itemFoot) {
+        this.itemFoot = itemFoot;
+    }
+    public void setItemRhand(Item itemRhand) {
+        this.itemRhand = itemRhand;
+    }
+    public void setItemLhand(Item itemLhand) {
+        this.itemLhand = itemLhand;
+    }
     
     //VENDER ITENS
     public int xp = 0;
-    public boolean venderItems(List<Item> itensParaVender ){            //e se o usuario digitar errado?
-        for (int i=0; i<itensParaVender.size(); i++){
-            int p = inventory.acessarItem(itensParaVender.get(i).getNAME()).getValor();
-            inventory.removerItem(itensParaVender.get(i).getNAME());
+    public boolean venderItems(List<Item> listaItensVender ){
+        for (int i=0; i<listaItensVender.size(); i++){
+            int p = inventory.acessarItem(listaItensVender.get(i).getNAME()).getValor();
+            inventory.removerItem(listaItensVender.get(i).getNAME());
+            
             xp += p;
             if(xp>=1000){
                 xp -= 1000;

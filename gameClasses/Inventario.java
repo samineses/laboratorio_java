@@ -1,3 +1,14 @@
+/*
+ * toString(util para teste)
+ * removerItem (util para vender item)
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
 package gameClasses;
 import java.util.List;
 
@@ -34,6 +45,7 @@ public class Inventario {
     
     //ACESSAR ITEM
     Item testando;
+    public int xp;
     public Item acessarItem(String name){
         for (int i=0; i<itens.size(); i++){
             String p = itens.get(i).getNAME();
@@ -55,6 +67,7 @@ public class Inventario {
             }
         }        
     }
+    
     //REMOVER VARIOS ITEMS
     public void removerItems(List<String> nomes){
         for (int m=0; m<nomes.size(); m++){
@@ -69,7 +82,7 @@ public class Inventario {
         }
     }
 
-    //LISTAR ITENS INVENTARIO                               (qual a utilidade se o toString já faz isso???)
+    //LISTAR ITENS INVENTARIO
     public void listarItens(){
         for (int i=0; i<itens.size(); i++){
             System.out.println("- "+itens.get(i).toString());
@@ -77,14 +90,13 @@ public class Inventario {
     }
     
     
-    //impressao 
+    //IMPRESSÃO 
     public String toString() {
         
         String local;
     
-        local = "\n-Limite de Itens: " + limiteDeItens + "\n" +
-                "\n" + "Nome do Item :  Tipo   :  Poder  : Valor : Item Grande  :     Classes Compativeis  :    Raças Compatíveis" +
-                "\n\n " + itens;
+        local = "\n< Limite de Itens = " + limiteDeItens + " >\n" 
+        + "\n " + itens;
         
         return  local;
     }
