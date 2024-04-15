@@ -1,7 +1,7 @@
 package gameClasses;
 
-//import java.util.ArrayList;
 import java.util.List;
+@SuppressWarnings("unused")
 
 
 public class Item {
@@ -15,21 +15,30 @@ public class Item {
     
     private int valor;
     private boolean itemGrande;
-    private List<Classe> classesCompativeis;
-    private List<Race> racasCompativeis;
+    private List<Classe> classesCompativeis;    //set
+    private List<Race> racasCompativeis;        //set
+    
     
     //CONSTRUCTOR
-    public Item(String NAME, TipoItem tipo, int bonusPower, int valor, boolean itemGrande, List<Classe> classesCompativeis, List<Race> racasCompativeis){
+    public Item(String NAME, TipoItem tipo, int bonusPower, int valor, boolean itemGrande){
         this.NAME = NAME;
         this.tipo = tipo;
         this.bonusPower = bonusPower;
         this.valor = valor;
         this.itemGrande = itemGrande;
-        this.classesCompativeis = classesCompativeis;
-        this.racasCompativeis = racasCompativeis;
     }
     
     //GETTERS and SETTERS
+    public void setClassesCompativeis(List<Classe> classesCompativeis) {
+        this.classesCompativeis = classesCompativeis;
+    }
+
+    public void setRacasCompativeis(List<Race> racasCompativeis) {
+        this.racasCompativeis = racasCompativeis;
+    }
+    
+    
+    
     public String getNAME() {
         return NAME;
     }
@@ -45,13 +54,13 @@ public class Item {
         
         String local;
 
-        local = "  "  + NAME + "   : "    +
-                ""  + tipo   + "  :     " +
-                bonusPower   + "  :   "   +
-                valor        + "  :   "   +
-                itemGrande   + "       :      "   +
-                classesCompativeis + ":  " +
-                racasCompativeis + "\n";
+        local = NAME                      + " : " +
+                "Tipo = "  + tipo         + " : " +
+                "Poder = " + bonusPower   + " : " +
+                "Valor = " + valor        + "" ;
+                //itemGrande   + " : " +
+                //classesCompativeis + ":  " +
+                //racasCompativeis + "\n";
                        
         return local;
     }

@@ -69,14 +69,10 @@ public class Inventario {
         }
     }
 
-    //LISTAR ITENS INVENTARIO  (qual a utilidade se o toString já faz isso??)
+    //LISTAR ITENS INVENTARIO                               (qual a utilidade se o toString já faz isso???)
     public void listarItens(){
-        /*String local =  "#Inventário Abaixo:\n" +
-                        "\n-Limite de Itens: " + limiteDeItens + "\n\n" + 
-                        "Nome do Item :  Tipo   :  Poder  : Valor : Item Grande  :     Classes Compativeis  :    Raças Compatíveis\n";
-        System.out.println(local);*/
         for (int i=0; i<itens.size(); i++){
-            System.out.println("  " + itens.get(i));
+            System.out.println("- "+itens.get(i).toString());
         }
     }
     

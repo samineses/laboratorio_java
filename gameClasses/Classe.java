@@ -12,6 +12,4 @@ public enum Classe {
     private Classe (String DESCRICAO){
         this.DESCRICAO = DESCRICAO;
     }
-    
-      
 }

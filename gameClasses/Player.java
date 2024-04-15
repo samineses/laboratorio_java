@@ -6,65 +6,42 @@ import java.util.List;
 public class Player {
 
     //ATRIBUTOS
-    private final String NAME;
-    private int level;
+    private final String NAME;      //get!
+    private int level;              //set
+    private Race race;              //
+    private Classe classe;          //
+    private Inventario inventory;   //set, get
     
-    
-    private Race race;
-    private Classe classe;
-    private Inventario inventory;
-    
-    private Item itemHead;    
-    private Item itemBody;
-    private Item itemRhand;
-    private Item itemLhand;
-    private Item itemFoot;
+    private Item itemHead;      //set, get    
+    private Item itemBody;      //set, get
+    private Item itemRhand;     //set, get
+    private Item itemLhand;     //set, get
+    private Item itemFoot;      //set, get
     
     //CONSTRUCTOR
-    public Player (String NAME){
+    public Player (String NAME, Race race, Classe classe){
         this.NAME = NAME;
+        this.race = race;
+        this.classe = classe;
     }
     
     
     
-    //GETs and SETs 
+    //GETTERS and SETTERS 
     public String getNAME(){
         return NAME;
-    }
-    public Inventario getInventory(){
-        return inventory;
     }
     public void setLevel(int level) {
         this.level = level;
     }
-    public void setClasse(Classe classe) {
-        this.classe = classe;
-    }
-    public void setRace(Race race) {
-        this.race = race;
-    }
+    //inventory
     public void setInventario(Inventario inventory){
         this.inventory = inventory;
     }
-    
-    /*//GET ( Itens )
-    public Item getItemHead() {
-        return itemHead;
-    }    
-    public Item getItemBody() {
-        return itemBody;
+    public Inventario getInventory(){
+        return inventory;
     }
-    public Item getItemFoot() {
-        return itemFoot;
-    }
-    public Item getItemRhand() {
-        return itemRhand;
-    }
-    public Item getItemLhand() {
-        return itemLhand;
-    }*/
-    
-    //SET ( Itens )    
+    //itens    
     public void setItemHead(Item itemHead) {
         this.itemHead = itemHead;
     }
@@ -80,8 +57,22 @@ public class Player {
     public void setItemLhand(Item itemLhand) {
         this.itemLhand = itemLhand;
     }
-        
-   
+    public Item getItemHead() {
+        return itemHead;
+    }
+    public Item getItemBody() {
+        return itemBody;
+    }
+    public Item getItemRhand() {
+        return itemRhand;
+    }
+    public Item getItemLhand() {
+        return itemLhand;
+    }
+    public Item getItemFoot() {
+        return itemFoot;
+    }
+    
     //VENDER ITENS
     public int xp = 0;
     public boolean venderItems(List<Item> itensParaVender ){            //e se o usuario digitar errado?
@@ -123,7 +114,6 @@ public class Player {
                 "\nPower       = " + playerPower()  + "\n" +
                 "\nRace        = "        +     race       + "\n" +
                 "\nClass       = "        +     classe     + "\n" ;
-                //"\n#Inventário Abaixo:\n" + inventory      + "\n" ; 
                
         return  local;   
     }
