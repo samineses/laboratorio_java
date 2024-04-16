@@ -1,0 +1,71 @@
+//minhas configurações settings.json
+
+{
+    "explorer.confirmDelete": false,
+    "redhat.telemetry.enabled": true,
+    "git.openRepositoryInParentFolders": "always",
+    "workbench.colorTheme": "Default High Contrast",
+    "editor.cursorStyle": "block",
+    "editor.accessibilityPageSize": 100,
+    "editor.fontSize": 12,
+    "editor.fontFamily": "'monospace'",
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.language.colorizedBracketPairs": [
+
+    ],
+    "workbench.colorCustomizations": {
+
+        "editorBracketMatch.background":"#e5ff0065", //fundo do bracket quando selecionado
+        "editorBracketHighlight.unexpectedBracket.foreground":"#ff0000", //bracket com erro
+        "editorBracketPairGuide.activeBackground1":"#dab71c91", //cores do guide bracket
+        "editorBracketPairGuide.activeBackground2":"#dab71c91", //cores do guide bracket
+        "editorBracketPairGuide.activeBackground3":"#dab71c91", //cores do guide bracket
+        "editorBracketPairGuide.activeBackground4":"#dab71c91", //cores do guide bracket
+        "editorBracketPairGuide.activeBackground5":"#dab71c91", //cores do guide bracket
+        "editorBracketPairGuide.activeBackground6":"#dab71c91", //cores do guide bracket
+
+        "editorError.foreground": "#ff0000",
+        "editorError.background":"#ff00001c",
+
+    },
+    "editor.guides.bracketPairs": "active",     //deixei o guide bracket ativo
+    "editor.guides.indentation": false,         //tirei o guide de identação
+    "json.schemas": [
+    
+    
+    
+        
+
+    ],
+    
+    "terminal.integrated.fontSize": 10,
+    "terminal.integrated.tabs.location": "left",    //como faço pra jogar pro bottom?
+    "workbench.sideBar.location": "right",
+    "editor.quickSuggestions": {
+        "other": "off"
+    },
+    "window.menuBarVisibility":"toggle",            //da pra acessar usando o alt
+    "workbench.statusBar.visible":false,            //barrinha debaixo     
+    
+    "workbench.editor.editorActionsLocation": "hidden",     //barra de pesquisa
+    "workbench.activityBar.location": "hidden",
+    "terminal.integrated.tabs.enabled": false,
+    "java.completion.favoriteStaticMembers": [
+        "org.junit.Assert.*",
+        "org.junit.Assume.*",
+        "org.junit.jupiter.api.Assertions.*",
+        "org.junit.jupiter.api.Assumptions.*",
+        "org.junit.jupiter.api.DynamicContainer.*",
+        "org.junit.jupiter.api.DynamicTest.*",
+        "org.mockito.Mockito.*",
+        "org.mockito.ArgumentMatchers.*",
+        "org.mockito.Answers.*"
+    ],
+    "editor.minimap.enabled": false, //barra de pesquisa
+    
+
+    
+
+
+
+}
