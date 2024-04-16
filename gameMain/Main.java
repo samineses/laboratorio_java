@@ -1,20 +1,15 @@
 /*************************************************************
+*       MC322 - Programação Orientada a Objetos
 *       Saulo Samineses 
 *       RA   = 188132
-*       Data = 15/04/2024
-*       Hora = 02:27
+*       Data = 16/04/2024
+*       Hora = 00:23
 * 
-*
-* -enxuguei ao maximo: se não to usando um get ou set não to implementando
-*
-*
+**
 *
 *  #duvidas
 * -ao imprimir inventario sem o toString o compilador já itendifica o toString, automaticamente?
 * -qual a diferença entre instanciar um objeto direto sem usar new??
-*
-*
-*
 *
 *************************************************************/
 package gameMain;
@@ -23,15 +18,14 @@ import java.util.List;
 import gameClasses.*;
 import battleClass.*;
 import java.util.Scanner;
+import java.util.Random;
 //import static battleClass.CampoDeBatalha.*;
 
-@SuppressWarnings("unused")
+
 public class Main {
     public static void main(String[] args){
         
         /*        
-        
-        
         //REMOÇÃO (lista de items from inventario)
         List <String> itemsToRemove = new ArrayList<>();
         //itemsToRemove.add("item01");
@@ -46,42 +40,7 @@ public class Main {
         String itemProcurado = "null";
         System.out.println("Item procurado    = "+ inventario01.acessarItem(itemProcurado) );      
         System.out.println("----------------------------------------------------\n");
-        //System.out.println(player01.toString());
-        
-        
-        
-        
-        */
-        
-        /////////////////////////////////////////////////////////////////// 
-        
-        /*
-        //INICIALIZANDO ( Masmorra pt1 )
-        //inventario01.listarItens();
-        //player01.setLevel(70);
-        
-        Monstro monstro01 = new Monstro("helloWorld",80,9);
-        Monstro monstro02 = new Monstro("helloWorld",80,9);
-        Monstro monstro03 = new Monstro("helloWorld",80,9);
-        
-        //System.out.println(monstro01.toString());
-        monstro01.setTesouros(listaItens02);
-        monstro02.setTesouros(listaItens02);
-        monstro03.setTesouros(listaItens02);
-        //CampoDeBatalha.batalharContraMonstro(monstro01, player01);
-        //System.out.println("----------------------------------------------------\n");
-        //inventario01.listarItens();
-        List <Monstro> monstros = new ArrayList<>();
-        monstros.add(monstro01);
-        monstros.add(monstro02);
-        monstros.add(monstro03);
-        
-        //BauDeTesouros bau = new BauDeTesouros(listaItens01, 3);
-        
-        
-        //Masmorra masmorra01 = new Masmorra(monstros, bau);
-        
-        //masmorra01.abrirPortaItem(player01);
+        //System.out.println(player01.toString());        
         */
 
         //INSTANCIANDO ( Race, Classe, Item)
@@ -114,8 +73,12 @@ public class Main {
         itensJogador.add(itemSapato);
         itensJogador.add(itemArmadura);
         itensJogador.add(itemCapacete);
-                
-        
+        List<Item> itensMonstro = new ArrayList<Item>();            //qual a utilidade do método inventario.adicionarItem(item01)?? 
+        itensMonstro.add(itemEspada);
+        itensMonstro.add(itemSapato);
+        itensMonstro.add(itemArmadura);
+        itensMonstro.add(itemCapacete);
+
         //INSTANCIANDO e SETANDO ( Inventario , Player )
         Inventario inventario = new Inventario(itensJogador,4);
         Player player01 = new Player("pedrinho",raceHumano,classeMago);       //e se tiver mais de um jogador?        
@@ -123,6 +86,25 @@ public class Main {
         player01.setInventario(inventario);
         
         
+        //INSTANCIANDO e SETANDO ( Monstros )
+        Monstro monstro01 = new Monstro("esqueleto",100,9);
+        Monstro monstro02 = new Monstro("zumbi",70,9);
+        Monstro monstro03 = new Monstro("spider",60,9);
+        monstro01.setTesouros(itensMonstro);
+        monstro02.setTesouros(itensMonstro);
+        monstro03.setTesouros(itensMonstro);
+        List <Monstro> monstros = new ArrayList<>();
+        monstros.add(monstro01);
+        monstros.add(monstro02);
+        monstros.add(monstro03);
+
+        BauDeTesouros bau = new BauDeTesouros(itensMonstro, 3);
+        
+
+
+
+
+
         //BUG01_testando pois to criando uma Myfunction pra isso
         Item testeNulo = new Item("nulo",null,0,650,false);
         player01.setItemHead(testeNulo);
@@ -311,10 +293,30 @@ public class Main {
                         }
                     }
                     
-                    
+                    //Passar para abrir a porta
                     else if(n==6){
-                        //igual a 5
-                        break;
+                        Masmorra masmorra = new Masmorra(monstros, bau);
+                        System.out.println("Jogo Mostra\n");
+                        Random porta = new Random();
+                        int portaAleatoria = (porta.nextInt(2) + 1);
+                        System.out.println("valor aleatorio = " + portaAleatoria);
+                        
+                        if(portaAleatoria ==1){
+                            String s = "Você abriu uma porta de monstro:\n"
+                            + "< Bem vindo à Masmorra>";
+                            System.out.println(s);
+                            //CampoDeBatalha.batalharContraMonstro(monstro01, player01);
+                            
+                        }
+                        else if(portaAleatoria ==2){
+                            String s = "Você abriu uma porta de item:\n"
+                            + "< Escolha entre esses dois itens aleatorios do bau>\n";
+                            System.out.println(s);
+                            
+                           masmorra.abrirPortaItem(player01);
+                        }
+                        
+                        continue;
                     }
                     
                     

@@ -1,14 +1,3 @@
-/*
- * toString(util para teste)
- * removerItem (util para vender item)
- * 
- * 
- * 
- * 
- * 
- * 
- */
-
 package gameClasses;
 import java.util.List;
 
@@ -19,28 +8,22 @@ public class Inventario {
     private int limiteDeItens;
     
     
-    
     //CONSTRUCTOR ( Inventário )
     public Inventario(List<Item> itens , int limiteDeItens){    
         this.itens = itens;
         this.limiteDeItens = limiteDeItens;
     }
     
-    //GETs
-    public int getLimiteDeItens() {
-        return limiteDeItens;
-    }
+    //GETTERS
     public List<Item> getItens() {
         return itens;
     }
+
+    public int getLimiteDeItens() {
+        return limiteDeItens;
+    }
     public void setItens(List<Item> itens) {
         this.itens = itens;
-    }
-    
-    //ADICIONAR ITEM
-    public boolean adicionarItem(Item item){
-        itens.add(item);
-        return true;
     }
     
     //ACESSAR ITEM
@@ -55,6 +38,19 @@ public class Inventario {
             }   
         }
         return testando;
+    }
+
+    //ADICIONAR ITEM
+    public boolean adicionarItem(Item item){        //falta ver o caso de inventario cheios
+        itens.add(item);
+        return true;
+    }
+    
+    //LISTAR ITENS INVENTARIO
+    public void listarItens(){
+        for (int i=0; i<itens.size(); i++){
+            System.out.println("- "+itens.get(i).getNAME().toString());
+        }
     }
 
     //REMOVER ITEM
@@ -81,14 +77,6 @@ public class Inventario {
             }
         }
     }
-
-    //LISTAR ITENS INVENTARIO
-    public void listarItens(){
-        for (int i=0; i<itens.size(); i++){
-            System.out.println("- "+itens.get(i).toString());
-        }
-    }
-    
     
     //IMPRESSÃO 
     public String toString() {

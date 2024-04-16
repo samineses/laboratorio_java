@@ -1,8 +1,12 @@
+/*
+ * 
+ * tesouros (set!)
+ * 
+ * 
+ * 
+ */
 package battleClass;
-
-//import java.util.ArrayList;
 import java.util.List;
-
 import gameClasses.Item;
 
 public class Monstro {
@@ -14,7 +18,7 @@ public class Monstro {
     private List<Item> tesouros;    
     
     //CONSTRUCTOR
-    public Monstro(String NAME,int poder, int niveisPerdidos){
+    public Monstro(String NAME, int poder, int niveisPerdidos){
         this.NAME = NAME;
         this.poder = poder;
         this.niveisPerdidos = niveisPerdidos;
