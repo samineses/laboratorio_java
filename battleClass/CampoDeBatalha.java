@@ -2,6 +2,7 @@ package battleClass;
 import gameClasses.Player;
 import java.util.Random;
 
+
 public class CampoDeBatalha {
     
     public static Resultado batalharContraMonstro(Monstro monstro, Player player){

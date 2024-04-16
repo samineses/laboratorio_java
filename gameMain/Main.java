@@ -19,7 +19,7 @@ import gameClasses.*;
 import battleClass.*;
 import java.util.Scanner;
 import java.util.Random;
-//import static battleClass.CampoDeBatalha.*;
+import static gameMain.Printx.*;
 
 
 public class Main {
@@ -33,14 +33,14 @@ public class Main {
         //itemsToRemove.add("item03");
         
         inventario01.removerItems(itemsToRemove);
-        System.out.println("items removidos   = " + itemToRemove);
+        print("items removidos   = " + itemToRemove);
         
         
         //IMPRESSÃO ( Acesso à Itens ) 
         String itemProcurado = "null";
-        System.out.println("Item procurado    = "+ inventario01.acessarItem(itemProcurado) );      
-        System.out.println("----------------------------------------------------\n");
-        //System.out.println(player01.toString());        
+        print("Item procurado    = "+ inventario01.acessarItem(itemProcurado) );      
+        print("----------------------------------------------------\n");
+        //print(player01.toString());        
         */
 
         //INSTANCIANDO ( Race, Classe, Item)
@@ -51,10 +51,15 @@ public class Main {
         Classe classeLadrao = Classe.LADRAO;
         Classe classeGuerreiro = Classe.GUERREIRO;
         //depois eu seto quais raças e classes cada item pode usar
-        Item itemCapacete = new Item("capacete", TipoItem.CABECA ,0,250,true);
-        Item itemArmadura = new Item("armadura", TipoItem.CORPO,15,350,true);
-        Item itemSapato = new Item("sapato", TipoItem.PE,20,650,true);
-        Item itemEspada = new Item("espada", TipoItem.MAO,20,650,true);
+        Item item01 = new Item("capacete", TipoItem.CABECA ,0,250,true);
+        Item item02 = new Item("armadura", TipoItem.CORPO,15,350,true);
+        Item item03 = new Item("sapato", TipoItem.PE,20,650,true);
+        Item item04 = new Item("espadaCurta", TipoItem.MAO,10,650,true);
+        Item item05 = new Item("espadaLonga", TipoItem.MAO,20,650,true);
+        Item item06 = new Item("espadaLaser", TipoItem.MAO,30,650,true);
+        Item item07 = new Item("cajadoMagico", TipoItem.MAO,40,650,true);
+        //Item item08 = new Item("cajadoNoob", TipoItem.MAO,50,650,true);
+        //Item item09 = new Item("luvasCaçador", TipoItem.MAO,60,650,true);
 
         
         //INSTANCIANDO LISTAS (Classes ,Raças, Itens )
@@ -69,15 +74,17 @@ public class Main {
         listaRaces.add(raceElfo);
         
         List<Item> itensJogador = new ArrayList<Item>();            //qual a utilidade do método inventario.adicionarItem(item01)?? 
-        itensJogador.add(itemEspada);
-        itensJogador.add(itemSapato);
-        itensJogador.add(itemArmadura);
-        itensJogador.add(itemCapacete);
+        itensJogador.add(item04);
+        itensJogador.add(item03);
+        itensJogador.add(item02);
+        itensJogador.add(item01);
         List<Item> itensMonstro = new ArrayList<Item>();            //qual a utilidade do método inventario.adicionarItem(item01)?? 
-        itensMonstro.add(itemEspada);
-        itensMonstro.add(itemSapato);
-        itensMonstro.add(itemArmadura);
-        itensMonstro.add(itemCapacete);
+        itensMonstro.add(item05);
+        itensMonstro.add(item06);
+        itensMonstro.add(item07);
+        //itensMonstro.add(item08);
+        //itensMonstro.add(item09);
+
 
         //INSTANCIANDO e SETANDO ( Inventario , Player )
         Inventario inventario = new Inventario(itensJogador,4);
@@ -101,10 +108,6 @@ public class Main {
         BauDeTesouros bau = new BauDeTesouros(itensMonstro, 3);
         
 
-
-
-
-
         //BUG01_testando pois to criando uma Myfunction pra isso
         Item testeNulo = new Item("nulo",null,0,650,false);
         player01.setItemHead(testeNulo);
@@ -115,8 +118,16 @@ public class Main {
         
         
             
+        //teste
+        print("****************************************\n");
+        Masmorra masmorraTeste = new Masmorra(monstros, bau);
+        print("\n2 itens aleatorios abaixo:\n");
+        masmorraTeste.abrirPortaItem(player01);
         
-        boolean teste = true;
+
+
+
+        boolean teste = false;
         if (teste ==true){
             //CONFIGURANDO SAÍDA
             String outInicial = new String();
@@ -138,10 +149,10 @@ public class Main {
             int n;
             String name;
             while (true){
-                System.out.println(outInicial);        
-                System.out.print("\nJogador digita: ");
+                print(outInicial);        
+                printDont("\nJogador digita: ");
                 n = inputUsuario.nextInt();
-                System.out.println("\n---------------------------------------\n");
+                print("\n---------------------------------------\n");
                 if (n<=6){
                     
                     //Sair do Jogo
@@ -156,13 +167,13 @@ public class Main {
                         + "\n[Pressione 1 para voltar]"
                         + "\n[Pressione x para sair do jogo]"
                         + "\n---------------------------------------";
-                        System.out.println(s);
-                        System.out.print("\nJogador pressiona: ");
+                        print(s);
+                        printDont("\nJogador pressiona: ");
                         n = inputUsuario.nextInt();                        
                         if(n==1){
                             continue;
                         }else{
-                            System.out.println("outra tecla pressionada, saindo do jogo");                            
+                            print("outra tecla pressionada, saindo do jogo");                            
                             break;
                         }                        
                     }
@@ -178,8 +189,8 @@ public class Main {
                                 + "\n...\n[Pressione 1 para voltar]"
                                 + "\n[Pressione x para sair]"
                                 + "\n---------------------------------------";
-                            System.out.println(s);
-                            System.out.print("\nJogador pressiona: ");
+                            print(s);
+                            printDont("\nJogador pressiona: ");
                             n = inputUsuario.nextInt();
                             if (n==1){
                                 continue;
@@ -190,19 +201,19 @@ public class Main {
                     
                     //Listar itens do inventario
                     else if(n==3){
-                        System.out.println("Jogo Mostra:\nListando itens do inventário\n ");
+                        print("Jogo Mostra:\nListando itens do inventário\n ");
                         player01.getInventory().listarItens();
                         String s ="\n...\n[Pressione 1 para voltar]"  
                         + "\n---------------------------------------";
-                        System.out.println(s);
+                        print(s);
                         
-                        System.out.print("\nJogador pressiona: ");
+                        printDont("\nJogador pressiona: ");
                         n = inputUsuario.nextInt();
                         
                         if(n==1){
                             continue;
                         }else{
-                            System.out.println("outra tecla pressionada, saindo do jogo");                            
+                            print("outra tecla pressionada, saindo do jogo");                            
                             break;
                         }
                     }
@@ -211,8 +222,8 @@ public class Main {
                     else if(n==4){
                         while(true){
                             boolean equip = false;
-                            System.out.println("Jogo Mostra:\n[Digite o nome do item a ser equipado]");
-                            System.out.print("\nNome do item : ");
+                            print("Jogo Mostra:\n[Digite o nome do item a ser equipado]");
+                            printDont("\nNome do item : ");
                             name = inputUsuario.next();                        
                             
                             for(int i=0; i<player01.getInventory().getItens().size(); i++){
@@ -237,8 +248,8 @@ public class Main {
                                                 + "]\n...\n[Pressione 1 para equipar outro item]"
                                                 + "\n[Pressione 2 para voltar]"
                                                 + "\n---------------------------------------";
-                                    System.out.println(s);     
-                                    System.out.print("\nJogador pressiona: ");
+                                    print(s);     
+                                    printDont("\nJogador pressiona: ");
                                     n = inputUsuario.nextInt();
                                     break;  
                                 }
@@ -248,8 +259,8 @@ public class Main {
                                             + "]\n...\n[Pressione 1 para equipar outro item]"
                                             + "\n[Pressione 2 para voltar]"
                                             + "\n---------------------------------------";
-                                System.out.println(s);
-                                System.out.print("\nJogador pressiona: ");
+                                print(s);
+                                printDont("\nJogador pressiona: ");
                                 n = inputUsuario.nextInt();
                             }
                             if (n==1){
@@ -266,8 +277,8 @@ public class Main {
                         while(true){
                             String s1 = "Jogo Mostra:\n"
                                     + "\nDigite o nome do item que gostaria de vender:";
-                            System.out.println(s1);
-                            System.out.print("\nNome do item : ");
+                            print(s1);
+                            printDont("\nNome do item : ");
                             name = inputUsuario.next();
                             for(int i=0; i<player01.getInventory().getItens().size(); i++){
                                 if(name.intern() == player01.getInventory().getItens().get(i).getNAME()){
@@ -279,8 +290,8 @@ public class Main {
                                                     + "]\n...\n[Pressione 1 para vender outro item]"
                                                     + "\n[Pressione 2 para voltar]"
                                                     + "\n---------------------------------------";
-                                    System.out.println(s2);
-                                    System.out.print("\nJogador pressiona: ");
+                                    print(s2);
+                                    printDont("\nJogador pressiona: ");
                                     n = inputUsuario.nextInt();
                                     break;
                                 }                            
@@ -296,22 +307,22 @@ public class Main {
                     //Passar para abrir a porta
                     else if(n==6){
                         Masmorra masmorra = new Masmorra(monstros, bau);
-                        System.out.println("Jogo Mostra\n");
+                        print("Jogo Mostra\n");
                         Random porta = new Random();
                         int portaAleatoria = (porta.nextInt(2) + 1);
-                        System.out.println("valor aleatorio = " + portaAleatoria);
+                        print("valor aleatorio = " + portaAleatoria + "\n");
                         
                         if(portaAleatoria ==1){
                             String s = "Você abriu uma porta de monstro:\n"
                             + "< Bem vindo à Masmorra>";
-                            System.out.println(s);
+                            print(s);
                             //CampoDeBatalha.batalharContraMonstro(monstro01, player01);
                             
                         }
                         else if(portaAleatoria ==2){
                             String s = "Você abriu uma porta de item:\n"
                             + "< Escolha entre esses dois itens aleatorios do bau>\n";
-                            System.out.println(s);
+                            print(s);
                             
                            masmorra.abrirPortaItem(player01);
                         }
@@ -323,10 +334,11 @@ public class Main {
 
                 }//e se o usuario digitar algo diferente de inteiro??
                 else{
-                    System.out.println( "\nEsse valor não é valido, name novamente\n");
+                    print( "\nEsse valor não é valido, name novamente\n");
                 }
             }
             //fim do jogo
-        }
-            }//fim if teste
+        inputUsuario.close();
+        }//fim if teste
+    }//fim main 
 }//fim classMain

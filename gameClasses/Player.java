@@ -1,6 +1,4 @@
 /*
- *  Lista de coisas uteis no player
- *
  * 
  * Name:(get)
  * level (set) (nao usei get até agora_eu acho)
@@ -13,8 +11,6 @@
  */
 
 package gameClasses;
-
-//import java.util.ArrayList;
 import java.util.List;
 
 public class Player {

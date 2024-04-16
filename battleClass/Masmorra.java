@@ -1,10 +1,12 @@
 package battleClass;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.Scanner;
+
 import gameClasses.Item;
 import gameClasses.Player;
 import static battleClass.CampoDeBatalha.*;
+import static gameMain.Printx.*;
 
 public class Masmorra{
     
@@ -31,23 +33,27 @@ public class Masmorra{
         batalharContraMonstro(monstros.get(0),jogador);      
     }
 
-    //ABRIR PORTA ITEM                  //consigo fazer isso bem mais simples sem usar o listarItens!!
+    //ABRIR PORTA ITEM
+    /*  Sobre o método abrirPortaItem:
+    *   
+    *   recebe como parametro um player e entrega uma listagem de dois itens gerados aleatoriamente para
+    *   o player poder escolher entre um deles
+    */
     public void abrirPortaItem(Player jogador){        
-        
         List<Item> listaVazia = new ArrayList<>();
-        BauDeTesouros LocalBau = new BauDeTesouros(listaVazia, 2);
-        for (int i=0; i<2;i++){
-            LocalBau.adicionarItem(tesouros.pegarItensAleatorios(2).get(i));
-        }
-        LocalBau.listarItens();
+        BauDeTesouros localBau = new BauDeTesouros(listaVazia, 2);
+        Scanner input = new Scanner(System.in);         
+        String name;
         
-        
-        //agora o jogador deve escolher um desses 2 itens
-        //depois usar o método acessarItem para pegar esse item do bau adicionar no inventario do jogador
+        listaVazia = tesouros.pegarItensAleatorios(2);
+        localBau.setItens(listaVazia);        
+        localBau.listarItens();
+        printDont("\nDigite o nome do item escolhido: ");
+        name = input.next();                    //e se o nome for digitado errado pelo usuario?
+        jogador.getInventory().adicionarItem(localBau.acessarItem(name));
+        print("\no item <"+localBau.acessarItem(name).getNAME() +"> foi adicionado");
+        input.close(); 
     }
-
-
-    
     
     //IMPRESSAO
     public String toString(String name){

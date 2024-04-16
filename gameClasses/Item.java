@@ -1,15 +1,3 @@
-/*
- * 
- * toString(util dentro de Listar inventario)
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- */
-
 package gameClasses;
 
 import java.util.List;
@@ -19,7 +7,7 @@ import java.util.List;
 public class Item {
 
     //atributos:
-    private final String NAME;      //get!    
+    private final String NAME;
     private TipoItem tipo;          //get!
     
     private int bonusPower;

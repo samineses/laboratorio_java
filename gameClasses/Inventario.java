@@ -1,3 +1,8 @@
+/*
+ * deixar tudo no constructor atrapalha um pouco
+ * 
+ */
+
 package gameClasses;
 import java.util.List;
 
@@ -18,26 +23,27 @@ public class Inventario {
     public List<Item> getItens() {
         return itens;
     }
-
-    public int getLimiteDeItens() {
-        return limiteDeItens;
-    }
     public void setItens(List<Item> itens) {
         this.itens = itens;
     }
+    /////////////////
+    public int getLimiteDeItens() {
+        return limiteDeItens;
+    }
     
     //ACESSAR ITEM
-    Item testando;
-    public int xp;
-    public Item acessarItem(String name){
+    public Item acessarItem(String name){       //e se tiver itens iguais na lista??
+        //Item itemAcesso = new Item(null, null, 0, 0, false);
+        Integer p = new Integer(0);
         for (int i=0; i<itens.size(); i++){
-            String p = itens.get(i).getNAME();
-            if (p.equals(name)){
-                testando = itens.get(i);
+            if (itens.get(i).getNAME().equals(name)){
+                p = i;
+                //itemAcesso = itens.get(i);
                 break;
             }   
         }
-        return testando;
+        return itens.get(p);
+        //return itemAcesso;
     }
 
     //ADICIONAR ITEM
@@ -49,7 +55,7 @@ public class Inventario {
     //LISTAR ITENS INVENTARIO
     public void listarItens(){
         for (int i=0; i<itens.size(); i++){
-            System.out.println("- "+itens.get(i).getNAME().toString());
+            System.out.println("- "+itens.get(i).getNAME()); 
         }
     }
 
