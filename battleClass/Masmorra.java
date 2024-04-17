@@ -42,18 +42,30 @@ public class Masmorra{
     public void abrirPortaItem(Player jogador){        
         List<Item> listaVazia = new ArrayList<>();
         BauDeTesouros localBau = new BauDeTesouros(listaVazia, 2);
+        @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);         
         String name;
         
         listaVazia = tesouros.pegarItensAleatorios(2);
         localBau.setItens(listaVazia);        
+        
+        String s = "Você abriu uma porta de item:\n"
+                + "< Escolha entre esses dois itens aleatorios do bau>\n";
+        print(s);
+
         localBau.listarItens();
         printDont("\nDigite o nome do item escolhido: ");
         name = input.next();                    //e se o nome for digitado errado pelo usuario?
         
-        jogador.getInventory().adicionarItem(localBau.acessarItem(name));
-        print("\nO item <"+localBau.acessarItem(name).getNAME() +"> foi adicionado");
-        input.close(); 
+        if(localBau.acessarItem(name.intern()) != null){
+            jogador.getInventory().adicionarItem(localBau.acessarItem(name.intern()));
+            print("\nO item < "+ name +" > foi adicionado");
+        }
+        else{
+            print("o item < "+ name + " > nao tá aqui\n");
+        }
+
+        //input.close(); 
     }
     
     //IMPRESSAO

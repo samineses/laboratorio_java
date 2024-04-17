@@ -34,29 +34,17 @@ public class Inventario {
     
     //ACESSAR ITEM
     public Item acessarItem(String name){       //e se tiver itens iguais na lista??
-        int p = 0;                              //e se nao tiver o item que está tentando acessar
+        int p = 0;     
         while(true){
-            p++;
             if(name == itens.get(p).getNAME()){
-                print("O item <"+ name +"> foi adicionado");
-                break;
+                return itens.get(p);                
             }
-            if(p==itens.size()){
-                print("o item"+ name + " nao tá aqui");
-                return null;
+            p++;
+            if(p == (itens.size())){
+                //print("N deu certo");
+            return null;
             }
-        }
-        
-        
-        
-        /*for (int i=0; i<itens.size(); i++){
-            if(name == itens.get(i).getNAME()){
-                print(itens.get(i).getNAME());
-                p = i;
-                break;
-            }
-        }*/        
-        return itens.get(p);
+        }    
     }
 
     //ADICIONAR ITEM

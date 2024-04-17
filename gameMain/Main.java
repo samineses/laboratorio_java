@@ -2,8 +2,8 @@
 *       MC322 - Programação Orientada a Objetos
 *       Saulo Samineses 
 *       RA   = 188132
-*       Data = 16/04/2024
-*       Hora = 00:23
+*       Data = 17/04/2024
+*       Hora = 02:06
 * 
 **
 *
@@ -22,6 +22,7 @@ import java.util.Random;
 import static gameMain.Printx.*;
 
 
+@SuppressWarnings("resource")
 public class Main {
     public static void main(String[] args){
         
@@ -116,22 +117,10 @@ public class Main {
         player01.setItemRhand(testeNulo);
         player01.setItemLhand(testeNulo);
         
-        
-            
-        //teste
-        Masmorra masmorraTeste = new Masmorra(monstros, bau);
-        /*print("****************************************\n");
-        print("\n2 itens aleatorios abaixo:\n");
-        masmorraTeste.abrirPortaItem(player01);
-        */
-        print("\n\n"+bau.getItens().toString()+"\n\n");
-        masmorraTeste.getTesouros().acessarItem("espadaLonga");
-        print("\n");
-        masmorraTeste.getTesouros().acessarItem("quero que apareça algo");
+                
 
 
-
-        boolean teste = false;
+        boolean teste = true;
         if (teste ==true){
             //CONFIGURANDO SAÍDA
             String outInicial = new String();
@@ -148,9 +137,9 @@ public class Main {
             "\n0 - Sair do Jogo\n"                      +
             "---------------------------------------"   ;
             
+            String name;
             Scanner inputUsuario = new Scanner(System.in);         
             int n;
-            String name;
             while (true){
                 print(outInicial);        
                 printDont("\nJogador digita: ");
@@ -323,14 +312,12 @@ public class Main {
                             
                         }
                         else if(portaAleatoria ==2){
-                            String s = "Você abriu uma porta de item:\n"
-                            + "< Escolha entre esses dois itens aleatorios do bau>\n";
-                            print(s);
                             
                            masmorra.abrirPortaItem(player01);
+                        
                         }
                         
-                        continue;
+                        //continue;
                     }
                     
                     
@@ -339,9 +326,9 @@ public class Main {
                 else{
                     print( "\nEsse valor não é valido, name novamente\n");
                 }
+                //inputUsuario.close();
             }
             //fim do jogo
-        inputUsuario.close();
         }//fim if teste
     }//fim main 
 }//fim classMain
