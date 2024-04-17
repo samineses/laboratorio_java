@@ -50,8 +50,9 @@ public class Masmorra{
         localBau.listarItens();
         printDont("\nDigite o nome do item escolhido: ");
         name = input.next();                    //e se o nome for digitado errado pelo usuario?
+        
         jogador.getInventory().adicionarItem(localBau.acessarItem(name));
-        print("\no item <"+localBau.acessarItem(name).getNAME() +"> foi adicionado");
+        print("\nO item <"+localBau.acessarItem(name).getNAME() +"> foi adicionado");
         input.close(); 
     }
     

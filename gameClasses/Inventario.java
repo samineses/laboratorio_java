@@ -5,6 +5,7 @@
 
 package gameClasses;
 import java.util.List;
+import static gameMain.Printx.*;
 
 public class Inventario {
     
@@ -33,17 +34,29 @@ public class Inventario {
     
     //ACESSAR ITEM
     public Item acessarItem(String name){       //e se tiver itens iguais na lista??
-        //Item itemAcesso = new Item(null, null, 0, 0, false);
-        Integer p = new Integer(0);
-        for (int i=0; i<itens.size(); i++){
-            if (itens.get(i).getNAME().equals(name)){
-                p = i;
-                //itemAcesso = itens.get(i);
+        int p = 0;                              //e se nao tiver o item que está tentando acessar
+        while(true){
+            p++;
+            if(name == itens.get(p).getNAME()){
+                print("O item <"+ name +"> foi adicionado");
                 break;
-            }   
+            }
+            if(p==itens.size()){
+                print("o item"+ name + " nao tá aqui");
+                return null;
+            }
         }
+        
+        
+        
+        /*for (int i=0; i<itens.size(); i++){
+            if(name == itens.get(i).getNAME()){
+                print(itens.get(i).getNAME());
+                p = i;
+                break;
+            }
+        }*/        
         return itens.get(p);
-        //return itemAcesso;
     }
 
     //ADICIONAR ITEM
@@ -55,7 +68,7 @@ public class Inventario {
     //LISTAR ITENS INVENTARIO
     public void listarItens(){
         for (int i=0; i<itens.size(); i++){
-            System.out.println("- "+itens.get(i).getNAME()); 
+            print("- "+itens.get(i).getNAME()); 
         }
     }
 

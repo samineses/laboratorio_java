@@ -109,7 +109,7 @@ public class Main {
         
 
         //BUG01_testando pois to criando uma Myfunction pra isso
-        Item testeNulo = new Item("nulo",null,0,650,false);
+        Item testeNulo = new Item("nulo",null,0,0,false);
         player01.setItemHead(testeNulo);
         player01.setItemBody(testeNulo);
         player01.setItemFoot(testeNulo);
@@ -119,11 +119,15 @@ public class Main {
         
             
         //teste
-        print("****************************************\n");
         Masmorra masmorraTeste = new Masmorra(monstros, bau);
+        /*print("****************************************\n");
         print("\n2 itens aleatorios abaixo:\n");
         masmorraTeste.abrirPortaItem(player01);
-        
+        */
+        print("\n\n"+bau.getItens().toString()+"\n\n");
+        masmorraTeste.getTesouros().acessarItem("espadaLonga");
+        print("\n");
+        masmorraTeste.getTesouros().acessarItem("quero que apareça algo");
 
 
 
@@ -144,7 +148,6 @@ public class Main {
             "\n0 - Sair do Jogo\n"                      +
             "---------------------------------------"   ;
             
-            @SuppressWarnings("resource")
             Scanner inputUsuario = new Scanner(System.in);         
             int n;
             String name;
