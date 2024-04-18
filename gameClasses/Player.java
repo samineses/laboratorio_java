@@ -116,13 +116,11 @@ public class Player {
     
     //IMPRESSÃO: (toString)
     public String toString() {
-        String local;
-    
-        local = "\nPlayer      = "        +     NAME       + "\n" +
-                "\nLevel       = "        +     level      + "\n" +
-                "\nPower       = " + playerPower()  + "\n" +
-                "\nRace        = "        +     race       + "\n" +
-                "\nClass       = "        +     classe     + "\n" ;
+        String local="Player      = " + NAME            +
+                    "\nLevel       = " + level          +
+                    "\nPower       = " + playerPower()  +
+                    "\nRace        = " + race           +
+                    "\nClass       = " + classe         ; 
                
         return  local;   
     }

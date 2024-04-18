@@ -56,7 +56,7 @@ public class Inventario {
     //LISTAR ITENS INVENTARIO
     public void listarItens(){
         for (int i=0; i<itens.size(); i++){
-            print("- "+itens.get(i).getNAME()); 
+            print( (i+1)+". " + itens.get(i).getNAME() );       //colocar opcao de digitar numero
         }
     }
 

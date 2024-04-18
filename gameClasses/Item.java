@@ -50,15 +50,13 @@ public class Item {
     //metodo de impressao
     public String toString() {
         
-        String local;
-
-        local = NAME                      + " : " +
-                "Tipo = "  + tipo         + " : " +
-                "Poder = " + bonusPower   + " : " +
-                "Valor = " + valor        + "\n" ;
-                //"item grande = "+itemGrande   + " : " +
-                //"classesCompativeis = "+classesCompativeis + ":  " +
-                //"racas compativeis = "+racasCompativeis + "\n";
+        String local=NAME+ " : "                                            +
+                    "Tipo = "  + tipo + " : "                               +
+                    "Poder = " + bonusPower + " : "                         +
+                    "Valor = " + valor + "\n"                               ;
+                    //"Item grande = "+itemGrande   + " : "                 +
+                    //"Classes compativeis = "+classesCompativeis + ":  "   +
+                    //"Racas compativeis = "+racasCompativeis + "\n"        ;
                        
         return local;
     }
