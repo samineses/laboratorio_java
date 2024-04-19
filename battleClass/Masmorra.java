@@ -2,11 +2,11 @@ package battleClass;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import gameClasses.Item;
 import gameClasses.Player;
 import static battleClass.CampoDeBatalha.*;
 import static gameMain.Printx.*;
+import static gameMain.Delay.*;
 
 public class Masmorra{
     
@@ -28,10 +28,9 @@ public class Masmorra{
     //ABRIR PORTA MONSTRO
     public void abrirPortaMonstro(Player jogador){
         
-        String s1 = "Você abriu uma porta de monstro\n";
- 
-        
-        print("\n"+s1);
+        print("\nBoa sorte, você abriu uma porta de monstro");
+        delay();        
+        print("\n");
         batalharContraMonstro(monstros.get(0),jogador);
     }
 
@@ -72,7 +71,17 @@ public class Masmorra{
             print("O item < "+ name +" > foi adicionado");
         }
         else{
-            print("o item '"+ name + "' nao é válido");        //opcao para digitar novamente
+            String s4 = "o item '"+ name + "' nao é válido\n"   +
+                        "\n..."                                 +
+                        "\n[Digite novamente]"                  ;
+            
+            boolean bool = false;
+            while(bool==false){
+                print(s4);
+                printDont(s2);
+                name = input.next();
+                print("\n"+s3);
+            }
         }
         
         //acessorio:ver inventario, tentar abrir outra porta, voltar para menu inicial,sair do jogo

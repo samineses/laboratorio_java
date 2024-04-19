@@ -135,8 +135,6 @@ public class Main {
                     " \n0 - Sair do Jogo"                           +
                     " \n---------------------------------------\n"  +
                     " \nJogador digita: "                           ;
-        String out2="---------------------------------------"       +
-                    "\n              Jogo Mostra:"                  ; 
                     
         Scanner inputUsuario = new Scanner(System.in);         
         int n;
@@ -348,20 +346,21 @@ public class Main {
                 //Passar para abrir a porta
                 else if(n==6){
                     
-
                     while(true){
-                        String s0 = "..."                                           +
+                        String s0 = "---------------------------------------"       +
+                                    "\n              Jogo Mostra:"                  ;
+                        String s1 = "..."                                           +
                                     "\n[Pressione 0 para sair do jogo]"             +
                                     "\n[Pressione 1 para voltar]"                   +
                                     "\n[Pressione 2 para abrir porta novamente]"    +
                                     "\n---------------------------------------\n"   +
                                     "\nJogador pressiona: "                         ;
 
-
                         Masmorra masmorra = new Masmorra(monstros, bau);
                         Random porta = new Random();
                         int portaAleatoria = (porta.nextInt(2) + 1);
                         
+                        print("\n"+s0);
                         if(portaAleatoria == 1){                        
                             masmorra.abrirPortaMonstro(player01);
                         }
@@ -369,12 +368,11 @@ public class Main {
                             masmorra.abrirPortaItem(player01);
                         }
                                                 
-                        printDont("\n"+s0);
+                        printDont("\n"+s1);
                         n = inputUsuario.nextInt();
                         
     
                         if (n==2){
-                            print("\n"+ out2);
                             continue;
                         }else{
                             break;
@@ -390,6 +388,9 @@ public class Main {
             }//e se o usuario digitar algo diferente de inteiro??
             else{
                 print( "\nEsse valor não é valido, digite novamente\n");
+            }
+            if (n==0){
+                break;
             }
             //inputUsuario.close();
         }
