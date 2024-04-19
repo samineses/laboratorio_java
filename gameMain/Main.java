@@ -2,10 +2,8 @@
 *       MC322 - Programação Orientada a Objetos
 *       Saulo Samineses 
 *       RA   = 188132
-*       Data = 17/04/2024
-*       Hora = 02:06
-* 
-**
+*       Data = 19/04/2024
+*       Hora = 12:56
 *
 *  #duvidas
 * -ao imprimir inventario sem o toString o compilador já itendifica o toString, automaticamente?
@@ -121,32 +119,34 @@ public class Main {
 
 
         //CONFIGURANDO SAÍDA
-        boolean t = true;
         String outInicial = new String();
-        Scanner inputUsuario = new Scanner(System.in);         
-        outInicial= "\n---------------------------------------" +
-                    "\n             Jogo Mostra:\n"             +
-                    "\nJogador 01: " + player01.getNAME()       +
-                    "\nO que você deseja fazer?"                +
-                    "\n1 - Ver informações do jogador"          +
-                    "\n2 - Mostrar seus itens equipados"        +
-                    "\n3 - Listar itens do inventário"          +
-                    "\n4 - Equipar itens do inventário"         +
-                    "\n5 - Vender itens do inventário"          +
-                    "\n6 - Passar para abrir a porta\n"         +
-                    "\n0 - Sair do Jogo"                        +
-                    "\n---------------------------------------" ;
-        
-
         String name;
+        
+        outInicial= "---------------------------------------"       +           //#implementar algo para esconder display
+                    " \n             Jogo Mostra:\n"                +
+                    " \nJogador 01: " + player01.getNAME()          +
+                    " \nO que você deseja fazer?"                   +
+                    " \n1 - Ver informações do jogador"             +
+                    " \n2 - Mostrar seus itens equipados"           +
+                    " \n3 - Listar itens do inventário"             +
+                    " \n4 - Equipar itens do inventário"            +
+                    " \n5 - Vender itens do inventário"             +
+                    " \n6 - Passar para abrir a porta\n"            +
+                    " \n0 - Sair do Jogo"                           +
+                    " \n---------------------------------------\n"  +
+                    " \nJogador digita: "                           ;
+        String out2="---------------------------------------"       +
+                    "\n              Jogo Mostra:"                  ; 
+                    
+        Scanner inputUsuario = new Scanner(System.in);         
         int n;
+        
+        boolean t = true;
         while (t ==true){
-            print(outInicial);        
-            printDont("\nJogador digita: ");
+            
+            printDont("\n"+outInicial);        
             n = inputUsuario.nextInt();
-            String out2 = "\n---------------------------------------\n"
-                        + "              Jogo Mostra:"; 
-            print(out2);
+
 
             if (n<=6){
                 
@@ -157,57 +157,72 @@ public class Main {
                 
                 //Ver informações do jogador
                 else if(n==1){
-                    String s="\n"+player01.toString()+ "\n"                +
-                            " \n..."                                       +
-                            " \n[Pressione 1 para voltar]"                 +
-                            " \n[Pressione x para sair do jogo]"           +
-                            " \n---------------------------------------"   ;
-                    print(s);
-                    printDont("\nJogador pressiona: ");
+                    String s0 = "---------------------------------------"       +
+                                "\n              Jogo Mostra:"                  + 
+                                "\n         -Informações do Jogador-\n"         +
+                                "\n"+ player01.toString()+ "\n"                 +
+                                "\n..."                                         +
+                                "\n[Pressione 1 para voltar]"                   +
+                                "\n[Pressione 0 para sair do jogo]"             +
+                                "\n---------------------------------------\n"   +
+                                "\nJogador pressiona: "                         ;
+                    
+                    printDont("\n"+s0);
                     n = inputUsuario.nextInt();                        
+                    
                     if(n==1){
                         continue;
-                    }else{
-                        print("outra tecla pressionada, saindo do jogo");                            
+                    }else if(n==0){
                         break;
                     }                        
                 }
                 
                 //Mostrar itens equipados
                 else if(n==2){
-                    String s="\nCabeça: "       + player01.getItemHead().toString()     +
-                            " \n\nBody: "        + player01.getItemBody().toString()    +
-                            " \n\nPé: "          + player01.getItemFoot().toString()    +
-                            " \n\nMão Esquerda: "+ player01.getItemLhand().toString()   +
-                            " \n\nMão Direita: " + player01.getItemRhand().toString()   +
-                            " \n...\n[Pressione 1 para voltar]"                         +
-                            " \n[Pressione x para sair]"                                +
-                            " \n---------------------------------------"                ;
-                        print(s);
-                        printDont("\nJogador pressiona: ");
-                        n = inputUsuario.nextInt();
-                        if (n==1){
-                            continue;
-                        }else{
-                            break;
-                        }
+                    String s0 = "---------------------------------------"                   +
+                                "\n              Jogo Mostra:"                              +
+                                "\n            -Itens Equipados-\n"                         +
+                                "\n° Head: "+ player01.getItemHead().toString()             +
+                                "\n° Body: "+ player01.getItemBody().toString()             +
+                                "\n° Foot: "+ player01.getItemFoot().toString()             +
+                                "\n° Left Hand: "+ player01.getItemLhand().toString()       +
+                                "\n° Right Hand: "+ player01.getItemRhand().toString()+ "\n"+
+                                "\n..."                                                     +
+                                "\n[Pressione 1 para voltar]"                               +
+                                "\n[Pressione 0 para sair do jogo]"                         +
+                                "\n---------------------------------------\n"               +
+                                "\nJogador pressiona: "                                     ;
+                    
+                    printDont(s0);
+                    n = inputUsuario.nextInt();
+                    
+                    if (n==1){
+                        continue;
+                    }else if(n==0){
+                        break;
+                    }
                 }
                 
                 //Listar itens do inventario
-                else if(n==3){
-                    print("\nListando itens do inventário\n ");
-                    player01.getInventory().listarItens();
-                    String s ="\n...\n[Pressione 1 para voltar]"  
-                    + "\n---------------------------------------";
-                    print(s);
+                else if(n==3){                  //#usar numeros para acessar comandos?
                     
-                    printDont("\nJogador pressiona: ");
+                    String s1 = "---------------------------------------"               +
+                                "\n              Jogo Mostra:"                          + 
+                                "\n       -Inventário do "+ player01.getNAME()+ "-\n "  ;    
+                    String s2 = "..."                                                 +
+                                "\n[Pressione 1 para voltar]"                           +
+                                "\n[Pressione 0 para sair do jogo]"             +
+                                "\n---------------------------------------\n"   +
+                                "\nJogador pressiona: "                         ;                                
+                    
+                    print("\n"+s1);
+                    player01.getInventory().listarItens();
+                    printDont("\n"+s2);
                     n = inputUsuario.nextInt();
                     
                     if(n==1){
                         continue;
-                    }else{
-                        print("outra tecla pressionada, saindo do jogo");                            
+                    }else if(n==0){
                         break;
                     }
                 }
@@ -215,16 +230,28 @@ public class Main {
                 //Equipar itens do inventario
                 else if(n==4){
                     while(true){
-                        boolean equip = false;
-                        String s1 =  "\nQual item você gostaria de equipar?\n"
-                                    +"\nNome do item : ";
+                        String s1 = "---------------------------------------"       +
+                                    "\n              Jogo Mostra:\n"                +                 
+                                    "\nQual item você gostaria de equipar?"         +
+                                    "\n---------------------------------------\n"   +            
+                                    "\nJogador digita : "                           ;
                         
+                        String s2 = "---------------------------------------"       ;
+                        
+                        String s3 = "..."                                           +
+                                    "\n[Pressione 0 para sair do jogo]"             +
+                                    "\n[Pressione 1 para voltar ao menu]"           +
+                                    "\n[Pressione 2 para equipar outro item]"       +
+                                    "\n---------------------------------------\n"   +
+                                    "\nJogador digita: "                            ;
 
-                        printDont(s1);
+
+                        printDont("\n"+s1);
                         name = inputUsuario.next();                        
+                        print("\n"+ s2);
                         
-                        for(int i=0; i<player01.getInventory().getItens().size(); i++){
-                            
+                        boolean equip = false;
+                        for(int i=0; i<player01.getInventory().getItens().size(); i++){    
                             if(name.intern() == player01.getInventory().getItens().get(i).getNAME()){
                                 
                                 if(player01.getInventory().getItens().get(i).getTipo().DESCRICAO == "Cabeça"){
@@ -241,30 +268,21 @@ public class Main {
                                 }
                                 
                                 equip = true;    
-                                String s = "\n[Jogador equipou " + name
-                                            + "]\n...\n[Pressione 1 para equipar outro item]"
-                                            + "\n[Pressione 2 para voltar]"
-                                            + "\n---------------------------------------";
-                                print(s);     
-                                printDont("\nJogador pressiona: ");
-                                n = inputUsuario.nextInt();
+                                print("Jogador equipou '" + name + "'");                        
                                 break;  
                             }
                         }
                         
                         if (equip == false){
-                            String s =  "\nO item "+ name +" não existe no inventario"
-                                        + "]\n...\n[Pressione 1 para equipar outro item]"
-                                        + "\n[Pressione 2 para voltar]"
-                                        + "\n---------------------------------------";
-                            print(s);
-                            printDont("\nJogador pressiona: ");
-                            n = inputUsuario.nextInt();
+                            print("O item '"+ name +"' não existe no inventario");                            
                         }
                         
-                        if (n==1){
+                        printDont("\n"+s3);
+                        n = inputUsuario.nextInt();
+                        
+                        if (n==2){
                             continue;
-                        }else if (n==2){
+                        }else{
                             break;
                         }
                     }
@@ -274,30 +292,54 @@ public class Main {
                 else if(n==5){
                     
                     while(true){
-                        String s1 = "Jogo Mostra:\n"
-                                + "\nDigite o nome do item que gostaria de vender:";
-                        print(s1);
-                        printDont("\nNome do item : ");
-                        name = inputUsuario.next();
+                        
+                        String s1 = "---------------------------------------"       +
+                                    "\n              Jogo Mostra:\n"                +  
+                                    "\nQual item você gostaria de vender?"       +
+                                    "\n---------------------------------------\n"   +            
+                                    "\nJogador digita : "                           ;
+                        String s2 = "---------------------------------------"   ;
+                        String s3 = "..."                                           +
+                                    "\n[Pressione 0 para sair do jogo]"             +
+                                    "\n[Pressione 1 para voltar ao menu]"           +
+                                    "\n[Pressione 2 para vender outro item]"    +
+                                    "\n---------------------------------------\n"   +
+                                    "\nJogador digita: "                            ;
+            
+                        printDont("\n"+s1);
+                        name = inputUsuario.next();                        
+                        print("\n"+ s2);
+                        
+
+                        boolean venda = false;
                         for(int i=0; i<player01.getInventory().getItens().size(); i++){
                             if(name.intern() == player01.getInventory().getItens().get(i).getNAME()){
                                 
                                 List<Item> listaItensVender = new ArrayList<>();
+                                String s4 = "Jogador vendeu o item " + name + "\n";
+                                
                                 listaItensVender.add(player01.getInventory().getItens().get(i));
                                 player01.venderItems(listaItensVender);
-                                String s2 = "\n[Jogador vendeu o item " + name
-                                                + "]\n...\n[Pressione 1 para vender outro item]"
-                                                + "\n[Pressione 2 para voltar]"
-                                                + "\n---------------------------------------";
-                                print(s2);
-                                printDont("\nJogador pressiona: ");
+                                
+                                print(s4);
+                                printDont(s3);
                                 n = inputUsuario.nextInt();
+                                
+                                venda = true;
                                 break;
                             }                            
                         }
-                        if (n==1){
+                        if (venda == false){
+                            String s4 = "O item '"+ name +"' não existe no inventario\n";
+                            
+                            print(s4);
+                            printDont(s3);
+                        n = inputUsuario.nextInt();
+                        }
+
+                        if (n==2){
                             continue;
-                        }else if (n==2){
+                        }else{
                             break;
                         }
                     }
@@ -306,38 +348,55 @@ public class Main {
                 //Passar para abrir a porta
                 else if(n==6){
                     
-                    Masmorra masmorra = new Masmorra(monstros, bau);
-                    Random porta = new Random();
-                    int portaAleatoria = (porta.nextInt(2) + 1);
-                    
-                    if(portaAleatoria == 1){
-                        masmorra.abrirPortaMonstro(player01);
-                        print("\n...\n[Voltando para o menu inicial]");
 
-                        /*
-                        String s = "Você abriu uma porta de monstro:\n"
-                        + "< Bem vindo à Masmorra-toEdit>";
-                        print(s);
-                        //CampoDeBatalha.batalharContraMonstro(monstro01, player01);
-                       */ 
+                    while(true){
+                        String s0 = "..."                                           +
+                                    "\n[Pressione 0 para sair do jogo]"             +
+                                    "\n[Pressione 1 para voltar]"                   +
+                                    "\n[Pressione 2 para abrir porta novamente]"    +
+                                    "\n---------------------------------------\n"   +
+                                    "\nJogador pressiona: "                         ;
+
+
+                        Masmorra masmorra = new Masmorra(monstros, bau);
+                        Random porta = new Random();
+                        int portaAleatoria = (porta.nextInt(2) + 1);
+                        
+                        if(portaAleatoria == 1){                        
+                            masmorra.abrirPortaMonstro(player01);
+                        }
+                        else if(portaAleatoria ==2){
+                            masmorra.abrirPortaItem(player01);
+                        }
+                                                
+                        printDont("\n"+s0);
+                        n = inputUsuario.nextInt();
+                        
+    
+                        if (n==2){
+                            print("\n"+ out2);
+                            continue;
+                        }else{
+                            break;
+                        }
+                        
                     }
-                    else if(portaAleatoria ==2){
-                        masmorra.abrirPortaItem(player01);
-                        printDont("\n...\n[Voltando para o menu inicial]");
-                        //acessorio:ver inventario, tentar abrir outra porta, voltar para menu inicial,sair do jogo
+                    if(n==0){
+                        break;
                     }
-                    
                     
                 }
                 
-                
-
             }//e se o usuario digitar algo diferente de inteiro??
             else{
-                print( "\nEsse valor não é valido, name novamente\n");
+                print( "\nEsse valor não é valido, digite novamente\n");
             }
             //inputUsuario.close();
         }
+        String gameOver="\n---------------------------------------" +
+                        "\n            -GAME OVER-"                 ;
+        print(gameOver);
+
         //fim do jogo
     }//fim main 
 }//fim classMain

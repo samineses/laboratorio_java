@@ -48,15 +48,15 @@ public class Item {
     }
 
     //metodo de impressao
-    public String toString() {
+    public String toString() {              //#e se abrir uma nova janela para acessar os itens???
         
-        String local=NAME+ " : "                                            +
-                    "Tipo = "  + tipo + " : "                               +
-                    "Poder = " + bonusPower + " : "                         +
-                    "Valor = " + valor + "\n"                               ;
-                    //"Item grande = "+itemGrande   + " : "                 +
-                    //"Classes compativeis = "+classesCompativeis + ":  "   +
-                    //"Racas compativeis = "+racasCompativeis + "\n"        ;
+        String local=NAME+ " | "                                            ;
+                    //"Tipo = "  + tipo + " : "                               +
+                    //"Poder = " + bonusPower + " : "                         +
+                    //"Valor = " + valor + "\n"                               ;
+                    //"Item grande = "+itemGrande   + " : "                   +
+                    //"Classes compativeis = "+classesCompativeis + ":  "     +
+                    //"Racas compativeis = "+racasCompativeis + "\n"          ;
                        
         return local;
     }

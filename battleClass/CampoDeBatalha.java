@@ -1,13 +1,16 @@
 package battleClass;
 import gameClasses.Player;
 import java.util.Random;
-
+import static gameMain.Printx.*;
 
 public class CampoDeBatalha {
     
+    /*MÉTODO ESTÁTICO
+    * BATALHAR CONTRA MONSTRO
+    */ 
     public static Resultado batalharContraMonstro(Monstro monstro, Player player){
         if(player.playerPower()>monstro.getPoder()){
-            System.out.println("WIN");
+            print("Seu poder é maior que o do monstro  - Você Venceu!");
             for (int i=0; i<monstro.getTesouros().size(); i++){
                 player.getInventory().adicionarItem(monstro.getTesouros().get(i));
             }

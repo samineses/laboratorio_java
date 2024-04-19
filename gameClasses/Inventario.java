@@ -53,10 +53,14 @@ public class Inventario {
         return true;
     }
     
-    //LISTAR ITENS INVENTARIO
+    
+    /*//LISTAR ITENS INVENTARIO
+     * entrega varias strings com nomes dos itens dentro do inventario
+     * #ideia: usar numero para acessar os itens
+     */
     public void listarItens(){
         for (int i=0; i<itens.size(); i++){
-            print( (i+1)+". " + itens.get(i).getNAME() );       //colocar opcao de digitar numero
+            print("° " + itens.get(i).getNAME() );       
         }
     }
 
