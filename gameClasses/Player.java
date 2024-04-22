@@ -1,15 +1,3 @@
-/*
- * 
- * Name:(get)
- * level (set) (nao usei get até agora_eu acho)
- * race, clase (nao usa nem get nem set já ficam definidas no constructor)
- * inventario (get, set)!
- * itens(get, set) (uso bastante nas interações com o usuario)
- * toString(util para mostrar informações do jogador) 
- * vender itens (to refatorando)
- * playerPower(util-e ta ok)
- */
-
 package gameClasses;
 import java.util.List;
 
@@ -20,13 +8,12 @@ public class Player {
     private int level;              
     private Race race;              
     private Classe classe;          
-    private Inventario inventory;   //set, get
-    
-    private Item itemHead;      //set, get    
-    private Item itemBody;      //set, get
-    private Item itemRhand;     //set, get
-    private Item itemLhand;     //set, get
-    private Item itemFoot;      //set, get
+    private Inventario inventory;
+    private Item itemHead;  
+    private Item itemBody;  
+    private Item itemRhand; 
+    private Item itemLhand; 
+    private Item itemFoot;
     
     //CONSTRUCTOR
     public Player (String NAME, Race race, Classe classe){
@@ -36,8 +23,10 @@ public class Player {
     }
     
     
-    
     //GETTERS and SETTERS 
+    public int getLevel() {
+        return level;
+    }
     public String getNAME(){
         return NAME;
     }

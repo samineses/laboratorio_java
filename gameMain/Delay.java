@@ -5,14 +5,14 @@ import java.lang.Thread;
 public class Delay {
 
     public static void delay(){
-        for (int i=0; i<3; i++){
+        for (int i=0; i<12; i++){
             try {
-                Thread.sleep(1500);
+                Thread.sleep(500);
             } catch(InterruptedException e) {
                 System.out.println("got interrupted!");
             }
-            System.out.print(".");
+            System.out.print("-");
         }
-
+        System.out.println("---------------------------");
     }
 }
