@@ -1,7 +1,4 @@
-/*
- * deixar tudo no constructor atrapalha um pouco
- * 
- */
+
 
 package gameClasses;
 import java.util.List;
@@ -33,7 +30,7 @@ public class Inventario {
     }
     
     //ACESSAR ITEM
-    public Item acessarItem(String name){       //e se tiver itens iguais na lista??
+    public Item acessarItem(String name){  
         int p = 0;     
         while(true){
             if(name == itens.get(p).getNAME()){
@@ -48,7 +45,7 @@ public class Inventario {
     }
 
     //ADICIONAR ITEM
-    public boolean adicionarItem(Item item){        //falta ver o caso de inventario cheios
+    public boolean adicionarItem(Item item){    
         itens.add(item);
         return true;
     }

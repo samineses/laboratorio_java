@@ -7,7 +7,7 @@ public class Monstro {
     //ATRIBUTOS
     private final String NAME;
     private int poder;    
-    private int niveisPerdidos; //nivel que será perdido pelo player ao perder batalha com monstro
+    private int niveisPerdidos;
     
     
     private List<Item> tesouros;    

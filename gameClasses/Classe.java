@@ -1,6 +1,6 @@
 package gameClasses;
 
-//Criando um enum = limita o acesso
+
 public enum Classe {
 
     MAGO("Mago"),

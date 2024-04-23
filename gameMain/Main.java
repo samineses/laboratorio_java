@@ -94,13 +94,12 @@ public class Main {
         player01.setLevel(80);                                              //level igual ao monstro?
         player01.setInventario(inventario);
 
-        //BUG01_testando pois to criando uma Myfunction pra isso
         Item testeNulo = new Item("nulo",null,0,0,false);
         player01.setItemBody(testeNulo);
         player01.setItemHead(testeNulo);
         player01.setItemFoot(testeNulo);
         player01.setItemRhand(testeNulo);
-        //player01.setItemLhand(testeNulo);
+        player01.setItemLhand(testeNulo);
         
                 
 
@@ -173,16 +172,21 @@ public class Main {
                 String out ="\n..."                                                 +
                             "\n[Digite 0 para sair do jogo]"                        +
                             "\n[Digite 1 para voltar ao menu]"                      +
+                            "\n[Digite 2 para equipar itens do inventário]"         +
                             "\n---------------------------------------"             ;
                     
                 print(s0+ "\n"+ out);
                 
-                n = comandoInvalido(n,out,"0","1","0","0");
+                n = comandoInvalido(n,out,"0","1","2","0");
                 
                 if (n.intern() == "1"){
                     continue;
                 }else if(n.intern()=="0"){
                     break;
+                }else if(n.intern()=="2"){
+                    n = "4";
+                    jump = true;
+                    continue;
                 }
             }
 
@@ -196,7 +200,7 @@ public class Main {
                             "\n[Digite 1 para voltar ao menu]"          +
                             "\n[Digite 2 para vender um dos itens]"     +
                             "\n[Digite 3 para equipar um dos itens]"    +
-                            "\n---------------------------------------" ; //opção de vender
+                            "\n---------------------------------------" ;
                     
                 print(s1);
                 player01.getInventory().listarItens();
@@ -230,8 +234,8 @@ public class Main {
                 String out = "\n..."                                        +
                             "\n[Digite 1 para voltar ao menu]"              +
                             "\n[Digite 2 para abrir o inventário]"          +
-                            "\n[Digite 3 para equipar outros itens]"          +
-                            "\n[Digite 4 para ver seus itens equipados]"                +
+                            "\n[Digite 3 para equipar outros itens]"        +
+                            "\n[Digite 4 para ver seus itens equipados]"    +
                             "\n---------------------------------------"     ;
 
 
@@ -375,10 +379,10 @@ public class Main {
                     
                 print(s0);
                 delay();
-                if(portaAleatoria == 1){    //==1                        
+                if(portaAleatoria == 1){                        
                     masmorra.abrirPortaMonstro(player01);
                 }
-                else if(portaAleatoria == 2){   //==2
+                else if(portaAleatoria == 2){
                     masmorra.abrirPortaItem(player01);
                 }
                                             

@@ -1,7 +1,6 @@
 /*
  * Atalho para usar System.out.println
  */
-//ver sobre polimorfismo parametrico!!
 package gameMain;
 
 public class Printx{

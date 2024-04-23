@@ -91,8 +91,7 @@ public class Masmorra{
             print(s4);
             }        
         
-        //acessorio:ver inventario, tentar abrir outra porta, voltar para menu inicial,sair do jogo
-        //input.close(); 
+        
     }
     
     

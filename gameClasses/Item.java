@@ -8,13 +8,12 @@ public class Item {
 
     //atributos:
     private final String NAME;
-    private TipoItem tipo;          //get!
-    
+    private TipoItem tipo;     
     private int bonusPower;
     private int valor;
     private boolean itemGrande;
-    private List<Classe> classesCompativeis;    //set
-    private List<Race> racasCompativeis;        //set
+    private List<Classe> classesCompativeis;   
+    private List<Race> racasCompativeis;       
     
     
     //CONSTRUCTOR
@@ -48,7 +47,7 @@ public class Item {
     }
 
     //metodo de impressao
-    public String toString() {              //#e se abrir uma nova janela para acessar os itens???
+    public String toString() {        
         
         String local=NAME+ " | "                                            ;
                     //"Tipo = "  + tipo + " : "                               +

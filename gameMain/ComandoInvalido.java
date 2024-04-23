@@ -1,3 +1,7 @@
+/*
+ * Método para reconhecer caso o usuario digite algo fora do esperado
+ */
+
 package gameMain;
 import java.util.Scanner;
 @SuppressWarnings("resource")

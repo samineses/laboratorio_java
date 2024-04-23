@@ -1,3 +1,9 @@
+/*
+ * Método para adicionar uma suspensao só para
+ * adicionar a experiencia do jogador
+ * 
+ */
+
 package gameMain;
 import java.lang.Thread;
 
