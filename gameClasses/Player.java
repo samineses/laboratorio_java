@@ -20,8 +20,22 @@ public class Player {
         this.NAME = NAME;
         this.race = race;
         this.classe = classe;
-    }
+        level = 0;
+        inventory = null ;
+        
+        /*fiz isso para poder imprimir informações 
+        * especificas de cada item, e evitar uma 
+        * exceção no caso de um item nulo
+        */
+        Item itemNull = new Item(); //        
+        itemHead = itemNull;  
+        itemBody = itemNull;  
+        itemRhand = itemNull; 
+        itemLhand = itemNull; 
+        itemFoot = itemNull;
     
+    }
+        
     
     //GETTERS and SETTERS 
     public int getLevel() {

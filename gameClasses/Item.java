@@ -25,6 +25,22 @@ public class Item {
         this.itemGrande = itemGrande;
     }
     
+    /*
+     *  SOBRECARGA NO CONSTRUCTOR
+     * para a necessidade de usar um item nulo 
+     */
+    public Item(){
+        NAME = null;
+        tipo = null;
+        bonusPower = 0;
+        valor = 0;
+        itemGrande = false;
+        classesCompativeis = null;
+        racasCompativeis = null;
+    }
+    
+
+
     //GETTERS and SETTERS
     public String getNAME() {
         return NAME;
@@ -49,10 +65,10 @@ public class Item {
     //metodo de impressao
     public String toString() {        
         
-        String local=NAME+ " | "                                            ;
-                    //"Tipo = "  + tipo + " : "                               +
-                    //"Poder = " + bonusPower + " : "                         +
-                    //"Valor = " + valor + "\n"                               ;
+        String local=NAME+ " | "                                            +
+                    "Tipo = "  + tipo + " : "                               +
+                    "Poder = " + bonusPower + " : "                         +
+                    "Valor = " + valor + "\n"                               ;
                     //"Item grande = "+itemGrande   + " : "                   +
                     //"Classes compativeis = "+classesCompativeis + ":  "     +
                     //"Racas compativeis = "+racasCompativeis + "\n"          ;

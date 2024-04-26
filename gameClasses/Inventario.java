@@ -56,9 +56,16 @@ public class Inventario {
      * #ideia: usar numero para acessar os itens
      */
     public void listarItens(){
+        
+        if(itens.size()==0){
+            print("O inventário está vazio");
+            return;
+        }
+        
         for (int i=0; i<itens.size(); i++){
             print("° " + itens.get(i).getNAME() );       
         }
+        return;        
     }
 
     //REMOVER ITEM
