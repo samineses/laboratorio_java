@@ -7,19 +7,27 @@ poliformismo parametrico
 input.close(); 
 ##################################
 #implementar!
-faltou organizar o metodo do item grande!!
-
 inventario.acessar item - e se tiver itens iguais na lista??
+
 inventario.adicionarItem - falta o caso se o inventario tiver cheio
+
 inventario.limite de itens
 
 ver inventario após lutar contra monstro
 
 #################################
 #lab04
-implementar metodo de ver detalhes do item - ai daria problema em tentar ver o nome de um item nulo!!
+se o player quiser equipar um item numa mão especifica? -> opção desequipar item
+
+implementar metodo de ver detalhes do item
 
 item.tostring e se abrir uma nova janela pra isso??
+
 caso tenha outro player
 
-caso level igual ao monstro=vitoria - lab03
+caso level player=monstro ->vitoria: lab03
+
+
+
+
+

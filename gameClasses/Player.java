@@ -27,13 +27,11 @@ public class Player {
         * especificas de cada item, e evitar uma 
         * exceção no caso de um item nulo
         */
-        Item itemNull = new Item(); //        
-        itemHead = itemNull;  
-        itemBody = itemNull;  
-        itemRhand = itemNull; 
-        itemLhand = itemNull; 
-        itemFoot = itemNull;
-    
+        itemHead = new Item();  
+        itemBody = new Item();  
+        itemRhand = new Item(); 
+        itemLhand = new Item(); 
+        itemFoot = new Item();    
     }
         
     

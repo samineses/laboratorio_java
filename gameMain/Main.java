@@ -32,17 +32,19 @@ public class Main {
         Classe classeLadrao = Classe.LADRAO;
         Classe classeGuerreiro = Classe.GUERREIRO;
         //depois eu seto quais raças e classes cada item pode usar
-        Item item01 = new Item("capacete", TipoItem.CABECA ,0,250,true);
-        Item item02 = new Item("armadura", TipoItem.CORPO,15,350,true);
-        Item item03 = new Item("sapato", TipoItem.PE,20,650,true);
-        Item item03_2 = new Item("tenis", TipoItem.PE,20,650,true);
+        Item item01 = new Item("capacete", TipoItem.CABECA ,0,250);
+        Item item02 = new Item("armadura", TipoItem.CORPO,15,350);
+        Item item03 = new Item("sapato", TipoItem.PE,20,650);
+        Item item04 = new Item("espadaCurta", TipoItem.MAO,10,650);
+        Item item05 = new Item("espadaLonga", TipoItem.MAO,20,650);
+        Item item06 = new Item("espadaLaser", TipoItem.MAO,30,650);
+        Item item07 = new Item("cajadoMagico", TipoItem.MAO,40,650);
 
-        Item item04 = new Item("espadaCurta", TipoItem.MAO,10,650,true);
-        Item item05 = new Item("espadaLonga", TipoItem.MAO,20,650,true);
-        Item item06 = new Item("espadaLaser", TipoItem.MAO,30,650,true);
-        Item item07 = new Item("cajadoMagico", TipoItem.MAO,40,650,true);
+        item04.setItemGrande(false);
+        item05.setItemGrande(true);
+        item06.setItemGrande(false);
+        //item07.setItemGrande(false);
 
-        
         /*INSTANCIANDO LISTAS
          * Classes
          * Raças
@@ -60,12 +62,13 @@ public class Main {
         listaRaces.add(raceElfo);
         
         List<Item> itensJogador = new ArrayList<Item>(); 
-        //itensJogador.add(item04);
-        itensJogador.add(item03);
-        itensJogador.add(item03_2);
+        itensJogador.add(item04);
+        itensJogador.add(item05);
+        itensJogador.add(item07);
+        itensJogador.add(item06);
+        //itensJogador.add(item03);
         //itensJogador.add(item02);
         //itensJogador.add(item01);
-        //itensJogador.add(item05);
 
         List<Item> itensMonstro = new ArrayList<Item>(); 
         itensMonstro.add(item05);
@@ -100,27 +103,27 @@ public class Main {
 
 
         //CONFIGURANDO SAÍDAs
-        String jumpLine =   "\n------------------------------------------" ;
+        String jumpLine =   "\n--------------------------------"    ;
         
-        String outInicial = "----------------------------------------------" +
-                            " \n             Jogo Mostra:\n"                    +
-                            " \nJogador 01: " + player01.getNAME()              +
-                            " \nO que você deseja fazer?"                       +
-                            " \n1 - Ver informações do jogador"                 +
-                            " \n2 - Mostrar seus itens equipados"               +
-                            " \n3 - Listar itens do inventário"                 +
-                            " \n4 - Equipar itens do inventário"                +
-                            " \n5 - Vender itens do inventário"                 +
-                            " \n6 - Passar para abrir a porta\n"                +
-                            " \n0 - Sair do Jogo"                               +
-                            jumpLine +
-                            " \n\nJogador digita: "                             ;
+        String outInicial = "--------------------------------"      +
+                            " \n         Jogo Mostra:\n"            +
+                            " \nJogador 01: " + player01.getNAME()  +
+                            " \nO que você deseja fazer?"           +
+                            " \n1 - Ver informações do jogador"     +
+                            " \n2 - Mostrar seus itens equipados"   +
+                            " \n3 - Listar itens do inventário"     +
+                            " \n4 - Equipar itens do inventário"    +
+                            " \n5 - Vender itens do inventário"     +
+                            " \n6 - Passar para abrir a porta\n"    +
+                            " \n0 - Sair do Jogo" + jumpLine        +
+                            " \n\nJogador digita: "                 ;
                     
         Scanner inputUsuario = new Scanner(System.in);         
         String n = "";
         
         
-        boolean jump = false;
+        boolean big = false;    //item grande está ou não, equipado
+        boolean jump = false;   //alternar os menus dentro do loop
         while (true){
                 
             if(jump == false){
@@ -245,10 +248,10 @@ public class Main {
                             "\n\nJogador digita : "                     ;
                                     
                 String out = "\n..."                                    +
-                            "\n[Digite 1 para Vender Itens]"      +
-                            "\n[Digite 2 para Equipar Itens]"    +
+                            "\n[Digite 1 para Vender Itens]"            +
+                            "\n[Digite 2 para Equipar Itens]"           +
                             "\n[Digite 3 para Voltar ao Menu]"          +
-                            "\n[Digite 4 para Ver Itens Equipados]"+
+                            "\n[Digite 4 para Ver Itens Equipados]"     +
                             jumpLine                                    ;
                 
                 
@@ -264,32 +267,21 @@ public class Main {
                         if(n.intern() == player01.getInventory().getItens().get(i).getNAME()){
                             
                             if(player01.getInventory().getItens().get(i).getTipo().DESCRICAO == "Cabeça"){
-                                if(player01.getItemHead().getNAME()==null){
-                                    player01.setItemHead(player01.getInventory().getItens().get(i));
-                                    player01.getInventory().removerItem(player01.getItemHead().getNAME());
-                                }else{
-                                    player01.getInventory().getItens().add(player01.getInventory().getItens().get(i));
-                                    player01.setItemHead(player01.getInventory().getItens().get(i));
+                                if(player01.getItemHead().getNAME()!=null){
+                                    player01.getInventory().adicionarItem(player01.getItemHead());
                                 }
-                                
+                                player01.setItemHead(player01.getInventory().getItens().get(i));
+                                player01.getInventory().removerItem(player01.getItemHead().getNAME());
                             }
+
                             else if(player01.getInventory().getItens().get(i).getTipo().DESCRICAO == "Corpo"){
+                                if(player01.getItemBody().getNAME()!=null){
+                                    player01.getInventory().adicionarItem(player01.getItemBody());
+                                }
                                 player01.setItemBody(player01.getInventory().getItens().get(i));
                                 player01.getInventory().removerItem(player01.getItemBody().getNAME());
                             }
-                            else if(player01.getInventory().getItens().get(i).getTipo().DESCRICAO == "Mão"){
-                                
-                                if(player01.getItemRhand().getNAME() == null){
-                                    player01.setItemRhand(player01.getInventory().getItens().get(i));
-                                    player01.getInventory().removerItem(player01.getItemRhand().getNAME());                                    
-                                }else{
-                                    player01.setItemLhand(player01.getInventory().getItens().get(i));
-                                    player01.getInventory().removerItem(player01.getItemLhand().getNAME());
-                                }
-                                
-                            }
-                            //sapato
-                            //tenis
+
                             else if(player01.getInventory().getItens().get(i).getTipo().DESCRICAO == "Pé"){
                                 if(player01.getItemFoot().getNAME()!=null){
                                     player01.getInventory().adicionarItem(player01.getItemFoot());
@@ -298,9 +290,46 @@ public class Main {
                                 player01.getInventory().removerItem(player01.getItemFoot().getNAME());
                                 
                             }
+
+                            else if(player01.getInventory().getItens().get(i).getTipo().DESCRICAO == "Mão"){
+                                
+                                if(player01.getInventory().getItens().get(i).getItemGrande() == true){   
+                                    if(player01.getItemLhand().getNAME()!=null){
+                                        if(player01.getItemRhand().getNAME()!=null){
+                                            player01.getInventory().adicionarItem(player01.getItemRhand());
+                                        }
+                                        player01.getInventory().adicionarItem(player01.getItemLhand());
+                                    }
+                                    player01.setItemLhand(player01.getInventory().getItens().get(i));
+                                    player01.setItemRhand(player01.getInventory().getItens().get(i));
+                                    big = true;
+                                }
+
+                                if(player01.getInventory().getItens().get(i).getItemGrande() == false){
+                                    if(player01.getItemLhand().getNAME() == null){
+                                        player01.setItemLhand(player01.getInventory().getItens().get(i));
+                                    }
+                                    else{
+                                        if(player01.getItemRhand().getNAME() != null){
+                                            if(big == true){
+                                                Item nulo = new Item();
+                                                player01.setItemLhand(nulo);                                        
+                                            }
+                                            player01.getInventory().adicionarItem(player01.getItemRhand());
+                                        }
+                                        player01.setItemRhand(player01.getInventory().getItens().get(i));                                            
+                                    }                                                                        
+                                    big = false;
+                                }                                
+                                
+                                player01.getInventory().removerItem(player01.getInventory().getItens().get(i).getNAME());                                                                                                      
+                            }
                             
                             equip = true;    
                             print("\n< "+player01.getNAME()+" equipou " + n + " >");                        
+                            if(big==true){
+                                print("\n"+n+" ocupará dois espaços\nde itens das mãos");
+                            }
                             break;  
                         }
                     }

@@ -12,23 +12,23 @@ public class Item {
     private int bonusPower;
     private int valor;
     private boolean itemGrande;
+    
     private List<Classe> classesCompativeis;   
     private List<Race> racasCompativeis;       
     
     
     //CONSTRUCTOR
-    public Item(String NAME, TipoItem tipo, int bonusPower, int valor, boolean itemGrande){
+    public Item(String NAME, TipoItem tipo, int bonusPower, int valor){
         this.NAME = NAME;
         this.tipo = tipo;
         this.bonusPower = bonusPower;
         this.valor = valor;
-        this.itemGrande = itemGrande;
     }
     
     /*
-     *  SOBRECARGA NO CONSTRUCTOR
-     * para a necessidade de usar um item nulo 
-     */
+    *  SOBRECARGA NO CONSTRUCTOR
+    * para a necessidade de usar um item nulo 
+    */
     public Item(){
         NAME = null;
         tipo = null;
@@ -39,9 +39,15 @@ public class Item {
         racasCompativeis = null;
     }
     
-
-
+    
+    
     //GETTERS and SETTERS
+    public boolean getItemGrande(){
+        return itemGrande;
+    }
+    public void setItemGrande(boolean itemGrande) {
+        this.itemGrande = itemGrande;
+    }
     public String getNAME() {
         return NAME;
     }
