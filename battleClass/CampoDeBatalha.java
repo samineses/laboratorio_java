@@ -20,8 +20,12 @@ public class CampoDeBatalha {
                         "Os seguintes itens serão adicionados ao seu invetorio:\n";
             print(s);
             for (int i=0; i<monstro.getTesouros().size(); i++){
-                player.getInventory().adicionarItem(monstro.getTesouros().get(i));
-                print("° "+monstro.getTesouros().get(i).getNAME());
+                if(player.getInventory().adicionarItem(monstro.getTesouros().get(i))==true){
+                    print("° "+monstro.getTesouros().get(i).getNAME());
+                }else{
+                    print("o seu inventario está cheio");
+                    break;
+                }
             }
             return Resultado.VITORIA;
         }        

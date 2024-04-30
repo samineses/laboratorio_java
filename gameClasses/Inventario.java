@@ -16,17 +16,24 @@ public class Inventario {
         this.itens = itens;
         this.limiteDeItens = limiteDeItens;
     }
+
+    public Inventario(){
+        
+    }
     
-    //GETTERS
+    //GETTERS and SETTERS
     public List<Item> getItens() {
         return itens;
     }
     public void setItens(List<Item> itens) {
         this.itens = itens;
     }
-    /////////////////
+
     public int getLimiteDeItens() {
         return limiteDeItens;
+    }
+    public void setLimiteDeItens(int limiteDeItens){
+        this.limiteDeItens = limiteDeItens;
     }
     
     //ACESSAR ITEM
@@ -46,14 +53,17 @@ public class Inventario {
 
     //ADICIONAR ITEM
     public boolean adicionarItem(Item item){    
-        itens.add(item);
-        return true;
+        if(itens.size()< limiteDeItens){
+            itens.add(item);
+            return true;
+        }else{
+            return false;
+        }
     }
     
     
-    /*//LISTAR ITENS INVENTARIO
+    /* LISTAR ITENS INVENTARIO
      * entrega varias strings com nomes dos itens dentro do inventario
-     * #ideia: usar numero para acessar os itens
      */
     public void listarItens(){
         

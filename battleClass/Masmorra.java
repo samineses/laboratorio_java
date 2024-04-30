@@ -1,5 +1,4 @@
 package battleClass;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -51,25 +50,33 @@ public class Masmorra{
     */
     public void abrirPortaItem(Player jogador){        
         
-        String s1 = "\nParabéns, você abriu uma porta de item"                        +
-                    "\nQual dos dois itens você gostaria de receber?"   +
-                    "\nDigite o nome do item abaixo:\n";
-                    
         
-        List<Item> listaVazia = new ArrayList<>();
-        listaVazia = tesouros.pegarItensAleatorios(2);
+        BauDeTesouros localBau = new BauDeTesouros();
+        localBau.setItens(tesouros.pegarItensAleatorios(2));
+        localBau.setLimiteDeItens(2);
+        
+        String s0 = "\nParabéns, você abriu uma porta de item"  +
+                    "\n\nItens do tesouro da masmorra:"           ;
 
-        BauDeTesouros localBau = new BauDeTesouros(listaVazia, 2);
-        localBau.setItens(listaVazia);        
+        String s1 = "\nEntre os itens do tesouro da masmorra"           +
+                    "\nSerão sorteados 2 deles de forma aleatoria "     +
+                    "\nDentre os quais você poderá escolher um deles"   +
+                    "\n\n[Boa Sorte]";
+
         
+                
+        print(s0);
+        tesouros.listarItens();
+        print(s1);
+        delay();
+        print("\nItens sorteados:");
+        localBau.listarItens();
+        print("\n[Escolha um dos itens]");
+
         @SuppressWarnings("resource")
         Scanner input = new Scanner(System.in);         
         String name;
-        
-        
-        print(s1);
-        localBau.listarItens();
-        
+            
         while(true){
             String s2 = "---------------------------------------\n" +
                         "\nJogador digita: "                        ; 
@@ -79,19 +86,24 @@ public class Masmorra{
             name = input.next();
             print(s3);
             
-            if(localBau.acessarItem(name.intern()) != null){
-                jogador.getInventory().adicionarItem(localBau.acessarItem(name.intern()));
-                print("< "+ jogador.getNAME()+" adicionou " +name +" no seu inventário >");
-                return;
+            for (int i=0;i<localBau.getItens().size();i++){
+                if(localBau.getItens().get(i).getNAME()==name.intern()){
+                    String s4 = "< O jogador "+ jogador.getNAME()+" adicionou " + 
+                                "\n  "+ name +" ao seu inventário >"; 
+                    if(jogador.getInventory().adicionarItem(tesouros.acessarItem(name.intern()))==true){
+                        print(s4);
+                    }else{
+                        print("< O seu inventário está cheio >");
+                    }
+                    return;
+                }
             }
             
-            String s4 = "o item '"+ name + "' nao é válido\n"   +
+            String s5 = "o item '"+ name + "' nao é válido\n"   +
                         "\n..."                                 +
                         "\n[Digite novamente o nome do item]";          
-            print(s4);
+            print(s5);
             }        
-        
-        
     }
     
     

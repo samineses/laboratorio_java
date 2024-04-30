@@ -1,4 +1,6 @@
 package battleClass;
+import static gameMain.Printx.print;
+
 import java.util.ArrayList;
 import java.util.List;
 import gameClasses.*;
@@ -11,10 +13,12 @@ public class BauDeTesouros extends Inventario{
         super(itens, limiteDeItens);                                
     }
 
-    /* Descrição do Método pegarItensAleatorios:
-    * Dentre itens da lista de itens do BauDeTesouros
-    * ele gera uma lista aleatoria de itens de quantidade definida!
-    *
+    public BauDeTesouros(){
+    }
+
+    /* PEGAR ITENS ALEATORIOS:
+    *  Dentre itens da lista de itens do BauDeTesouros
+    *  ele gera uma lista aleatoria de itens de quantidade definida!
     */
     public List<Item> pegarItensAleatorios(int quantidade){
         Random random = new Random();
@@ -34,5 +38,19 @@ public class BauDeTesouros extends Inventario{
         }        
     }
 
-
+    @Override
+    public Item acessarItem(String name){        
+        int p = 0;     
+        while(true){
+            if(name == getItens().get(p).getNAME()){
+                Item returnItem = getItens().get(p);
+                getItens().remove(p);
+                return returnItem;                
+            }
+            p++;
+            if(p == (getItens().size())){
+            return null;
+            }
+        }  
+    }
 }

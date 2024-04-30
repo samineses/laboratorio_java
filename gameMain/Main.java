@@ -66,14 +66,14 @@ public class Main {
         itensJogador.add(item05);
         itensJogador.add(item07);
         itensJogador.add(item06);
-        //itensJogador.add(item03);
-        //itensJogador.add(item02);
-        //itensJogador.add(item01);
-
+        
         List<Item> itensMonstro = new ArrayList<Item>(); 
         itensMonstro.add(item05);
         itensMonstro.add(item06);
         itensMonstro.add(item07);
+        itensMonstro.add(item03);
+        itensMonstro.add(item02);
+        itensMonstro.add(item01);
         
         
         //INSTANCIANDO e SETANDO ( Monstros )
@@ -88,13 +88,13 @@ public class Main {
         monstros.add(monstro02);
         monstros.add(monstro03);
         
-        BauDeTesouros bau = new BauDeTesouros(itensMonstro, 3);
+        BauDeTesouros bau = new BauDeTesouros(itensMonstro, 6);
         
         /*INSTANCIANDO e SETANDO
          * inventário
          * player
          */
-        Inventario inventario = new Inventario(itensJogador,4);
+        Inventario inventario = new Inventario(itensJogador,6);
         
         Player player01 = new Player("pedrinho",raceHumano,classeMago);
         player01.setLevel(80);
@@ -124,7 +124,8 @@ public class Main {
         
         boolean big = false;    //item grande está ou não, equipado
         boolean jump = false;   //alternar os menus dentro do loop
-        while (true){
+        boolean t = true;
+        while (t == true){
                 
             if(jump == false){
                 printDont("\n"+outInicial);        
@@ -144,19 +145,16 @@ public class Main {
                             "\n         -Informações do Jogador-"       +
                             "\n\n"+ player01.toString()                 ;
                 String out ="\n..."                                         +
-                            "\n[Digite 0 para Sair do Jogo]"                +
-                            "\n[Digite 3 para Voltar ao Menu]"              +
+                            "\n[Digite 0 para Voltar ao Menu]"              +
                             "\n[Digite 4 para Ver Itens Equipados]"         +
-                            "\n[Digite 5 para Ver Seu Itens do Inventário]" +
+                            "\n[Digite 5 para Ver Itens do Inventário]" +
                             jumpLine ;
                 
                 print(s0+ "\n"+ out);
-                n = comandoInvalido(n,out,"0","3","4","5");
+                n = comandoInvalido(n,out,"0","0","4","5");
                     
-                if(n.intern() == "3"){
+                if(n.intern() == "0"){
                     continue;
-                }else if(n.intern() == "0"){
-                    break;
                 }else if(n.intern()=="5"){
                     n = "3";
                     jump = true;
@@ -179,20 +177,17 @@ public class Main {
                             "\n° Left Hand: "+ player01.getItemLhand().getNAME()    +
                             "\n° Right Hand: "+ player01.getItemRhand().getNAME()   ;
                 String out= "\n..."                                             +
-                            "\n[Digite 0 para Sair do Jogo]"                    +
+                            "\n[Digite 0 para Voltar ao Menu]"                  +
                             "\n[Digite 2 para Equipar Itens]"                   +
-                            "\n[Digite 3 para Voltar ao Menu]"                  +
                             "\n[Digite 5 para Ver Seus Itens do Inventário]"    +
                             jumpLine         ;
                     
                 print(s0+ "\n"+ out);
                 
-                n = comandoInvalido(n,out,"0","2","3","5");
+                n = comandoInvalido(n,out,"0","2","0","5");
                 
-                if (n.intern() == "3"){
+                if (n.intern() == "0"){
                     continue;
-                }else if(n.intern()=="0"){
-                    break;
                 }else if(n.intern()=="2"){
                     n = "4";
                     jump = true;
@@ -210,21 +205,18 @@ public class Main {
                             "\n              Jogo Mostra:\n       "     + 
                             "-Inventário do "+ player01.getNAME()+ "-\n";    
                 String out = "\n..."                                    +
-                            "\n[Digite 0 para Sair do Jogo]"            +
+                            "\n[Digite 0 para Voltar ao Menu]"          +
                             "\n[Digite 1 para Vender Itens]"     +
                             "\n[Digite 2 para Equipar Itens]"    +
-                            "\n[Digite 3 para Voltar ao Menu]"          +
                             jumpLine ;
                     
                 
                 print(s1);
                 player01.getInventory().listarItens();
                 print(out);
-                n = comandoInvalido(n,out,"0","1","2","3");
+                n = comandoInvalido(n,out,"0","1","2","0");
 
                 if(n.intern()=="0"){
-                    break;
-                }else if(n.intern()=="3"){
                     continue;
                 }
                 else if(n.intern()=="1"){
@@ -248,9 +240,9 @@ public class Main {
                             "\n\nJogador digita : "                     ;
                                     
                 String out = "\n..."                                    +
+                            "\n[Digite 0 para Voltar ao Menu]"          +
                             "\n[Digite 1 para Vender Itens]"            +
                             "\n[Digite 2 para Equipar Itens]"           +
-                            "\n[Digite 3 para Voltar ao Menu]"          +
                             "\n[Digite 4 para Ver Itens Equipados]"     +
                             jumpLine                                    ;
                 
@@ -343,13 +335,13 @@ public class Main {
                 }
                 
                 print(out);
-                n = comandoInvalido(n,out,"4","1","2","3");
+                n = comandoInvalido(n,out,"4","1","2","0");
                 
                 if (n.intern()=="4"){
                     n ="2";
                     jump = true;
                     continue;
-                }else if(n.intern()=="3"){
+                }else if(n.intern()=="0"){
                     continue;
                 }else if(n.intern()=="2"){
                     n = "4";
@@ -371,9 +363,8 @@ public class Main {
                 String s2 =  jumpLine                                           +            
                             "\n\nJogador digita : "                             ;
                 String out = "\n..."                                            +
-                            "\n[Digite 0 para Sair do Jogo]"                    +
+                            "\n[Digite 0 para Voltar ao Menu]"                  +
                             "\n[Digite 1 para Vender Itens]"                    +
-                            "\n[Digite 3 para Voltar ao Menu]"                  +
                             "\n[Digite 6 para Abrir Porta da Masmorra]"         +
                             jumpLine   ;
                 print(s1);
@@ -399,12 +390,10 @@ public class Main {
                 }
                 
                 print(out);
-                n = comandoInvalido(n,out,"0","1","2","3");
+                n = comandoInvalido(n,out,"0","1","2","0");
 
-                if (n.intern()=="3"){
+                if (n.intern()=="0"){
                     continue;
-                }else if(n.intern()=="0"){
-                    break;
                 }else if(n.intern()=="1"){
                     n = "5";
                     jump = true;
@@ -425,8 +414,7 @@ public class Main {
                             "\nVocê pode igualmente abir uma porta com itens" +
                             "\nou com monstros, Boa sorte!";
                 String out = "\n..."                                     +
-                            "\n[Digite 0 para sair do jogo]"             +
-                            "\n[Digite 1 para voltar ao menu]"           +
+                            "\n[Digite 0 para voltar ao menu]"           +
                             "\n[Digite 2 para abrir porta novamente]"    +
                             jumpLine  ;
     
@@ -444,12 +432,10 @@ public class Main {
                 }
                                             
                 print(out);
-                n = comandoInvalido(n,out,"1","2","3","0");                    
+                n = comandoInvalido(n,out,"0","2","0","0");                    
     
-                if (n.intern()=="1"){
+                if (n.intern()=="0"){
                     continue;
-                }else if(n.intern()=="0"){
-                    break;
                 }else if(n.intern()=="2"){
                     n = "6";
                     jump = true;
@@ -464,8 +450,8 @@ public class Main {
                             "\n\nComando inválido, digite novamente";
                 print(s);
             }
-
-        }
+        }        
+        
         String gameOver =   jumpLine        +
                             "\n            "+
                             "-GAME OVER-"   ;
