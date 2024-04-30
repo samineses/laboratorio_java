@@ -7,11 +7,6 @@ poliformismo parametrico
 input.close(); 
 ##################################
 #implementar!
-inventario.acessar item - e se tiver itens iguais na lista??
-
-inventario.adicionarItem - falta o caso se o inventario tiver cheio
-
-inventario.limite de itens
 
 ver inventario após lutar contra monstro
 
