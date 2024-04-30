@@ -124,8 +124,7 @@ public class Main {
         
         boolean big = false;    //item grande está ou não, equipado
         boolean jump = false;   //alternar os menus dentro do loop
-        boolean t = true;
-        while (t == true){
+        while (true){
                 
             if(jump == false){
                 printDont("\n"+outInicial);        
