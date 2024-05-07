@@ -2,7 +2,6 @@ package battleClass;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-import gameClasses.Item;
 import gameClasses.Player;
 import static battleClass.CampoDeBatalha.*;
 import static gameMain.Printx.*;
@@ -12,8 +11,10 @@ public class Masmorra{
     
     //ATRIBUTOS
     private List<Monstro> monstros;
+    
+    
     private BauDeTesouros tesouros;
-        
+    
     //CONSTRUCTOR
     public Masmorra(List<Monstro> monstros, BauDeTesouros tesouros){
         this.monstros = monstros;
@@ -23,6 +24,9 @@ public class Masmorra{
     //GETTERS
     public BauDeTesouros getTesouros() {
         return tesouros;
+    }
+    public List<Monstro> getMonstros() {
+        return monstros;
     }
     
     

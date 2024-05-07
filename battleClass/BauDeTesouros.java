@@ -1,6 +1,4 @@
 package battleClass;
-import static gameMain.Printx.print;
-
 import java.util.ArrayList;
 import java.util.List;
 import gameClasses.*;
